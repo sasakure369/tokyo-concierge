@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tokyo Concierge – Unlock Tokyo, We Handle the Rest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho:wght@500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --vermilion: #E60023;
+      --vermilion-deep: #B3001B;
+      --black: #0B0B0C;
+      --ink: #16161A;
+      --white: #FFFFFF;
+      --off: #FAF8F5;
+      --line: #E8E4DE;
+      --muted: #9A9AA0;
+      --muted-d: #6B6B72;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(11,11,12,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 3px; color: var(--white); display: flex; align-items: center; gap: 10px; }
+    .nav-logo::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--vermilion); }
+    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.76rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--vermilion); }
+    .nav-cta { background: var(--vermilion); color: var(--white) !important; padding: 9px 22px; font-weight: 600; }
+    .nav-cta:hover { background: var(--vermilion-deep); color: var(--white) !important; }
+
+    /* HERO */
+    .hero { min-height: 100vh; position: relative; display: flex; align-items: center; padding: 120px 40px 90px; overflow: hidden; }
+    .hero-slides { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.8s ease-in-out; }
+    .hero-slide.active { opacity: 1; animation: kenburns 6s ease-out forwards; }
+    @keyframes kenburns { from { transform: scale(1.05); } to { transform: scale(1.15); } }
+    .hero-slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(11,11,12,0.9) 0%, rgba(11,11,12,0.55) 55%, rgba(11,11,12,0.35) 100%); }
+    .slide-1 { background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1400&q=80'); }
+    .slide-2 { background-image: url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=1400&q=80'); }
+    .slide-3 { background-image: url('https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1400&q=80'); }
+    .slide-4 { background-image: url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=1400&q=80'); }
+
+    .hero-content { position: relative; z-index: 2; max-width: 760px; color: var(--white); }
+    .hero-jp { font-family: 'Shippori Mincho', serif; color: var(--vermilion); font-size: 0.95rem; letter-spacing: 8px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 11vw, 150px); line-height: 0.9; letter-spacing: 2px; margin-bottom: 22px; }
+    .hero h1 span { color: var(--vermilion); display: block; }
+    .hero-sub { font-size: clamp(0.95rem, 2vw, 1.1rem); color: rgba(255,255,255,0.8); max-width: 460px; line-height: 1.8; margin-bottom: 28px; font-weight: 300; }
+    .hero-trust { display: flex; gap: 28px; margin-bottom: 36px; flex-wrap: wrap; }
+    .trust-item { display: flex; flex-direction: column; }
+    .trust-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--white); line-height: 1; }
+    .trust-num span { color: var(--vermilion); }
+    .trust-label { font-size: 0.7rem; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 12px; background: var(--vermilion); color: var(--white); font-weight: 600; font-size: 0.9rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 18px 44px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .hero-cta:hover { background: var(--vermilion-deep); transform: translateY(-2px); }
+    .hero-vertical { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); z-index: 2; writing-mode: vertical-rl; font-family: 'Shippori Mincho', serif; font-size: 1.05rem; letter-spacing: 10px; color: rgba(255,255,255,0.45); }
+
+    /* SECTION HEADER */
+    .sec-head { text-align: center; margin-bottom: 52px; }
+    .sec-jp { font-family: 'Shippori Mincho', serif; color: var(--vermilion); font-size: 0.9rem; letter-spacing: 6px; margin-bottom: 12px; }
+    .sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 6.5vw, 84px); letter-spacing: 2px; line-height: 1; }
+    .sec-desc { color: var(--muted-d); margin-top: 16px; font-size: 0.95rem; }
+
+    /* SPOTS — white base now */
+    .spots { padding: 110px 40px; background: var(--off); position: relative; }
+    .spots::before { content: '人気スポット'; position: absolute; top: 40px; right: 40px; font-family: 'Shippori Mincho', serif; font-size: 6rem; color: rgba(230,0,35,0.05); writing-mode: vertical-rl; letter-spacing: 4px; pointer-events: none; }
+    .spots-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
+    .tab-btn { background: transparent; border: 1px solid var(--line); color: var(--muted-d); padding: 9px 24px; font-size: 0.76rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
+    .tab-btn.active, .tab-btn:hover { background: var(--vermilion); color: var(--white); border-color: var(--vermilion); }
+    .spots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-width: 1140px; margin: 0 auto; }
+    .spot-card { position: relative; border-radius: 2px; overflow: hidden; aspect-ratio: 1/1; cursor: pointer; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+    .spot-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .spot-card:hover img { transform: scale(1.08); }
+    .spot-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,11,12,0.92) 0%, rgba(11,11,12,0.2) 55%, transparent 100%); }
+    .spot-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px; z-index: 2; color: var(--white); }
+    .spot-tag { display: inline-block; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--white); background: var(--vermilion); padding: 4px 10px; margin-bottom: 10px; font-weight: 600; }
+    .spot-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; }
+    .spot-desc { color: rgba(255,255,255,0.7); font-size: 0.8rem; line-height: 1.5; max-height: 0; overflow: hidden; opacity: 0; transition: all 0.4s ease; }
+    .spot-card:hover .spot-desc { max-height: 100px; opacity: 1; }
+    .spot-card.hidden { display: none; }
+    .spots-more { text-align: center; margin-top: 40px; }
+    .more-btn { background: transparent; border: 1px solid var(--black); color: var(--black); padding: 14px 40px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; font-weight: 500; }
+    .more-btn:hover { background: var(--black); color: var(--white); }
+
+    /* HOW — black */
+    .how { background: var(--black); color: var(--white); padding: 110px 40px; }
+    .how .sec-title { color: var(--white); }
+    .steps { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
+    .step { background: var(--ink); border-radius: 2px; padding: 44px 32px; flex: 1; min-width: 240px; max-width: 300px; text-align: left; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+    .step::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--vermilion); }
+    .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.6rem; color: var(--vermilion); line-height: 1; margin-bottom: 16px; }
+    .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; }
+    .step p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+    /* PRICE — white */
+    .price { padding: 110px 40px; text-align: center; background: var(--white); }
+    .price .sec-title { color: var(--black); }
+    .price-card { display: inline-block; border: 1px solid var(--line); border-top: 3px solid var(--vermilion); padding: 56px 72px; text-align: center; background: var(--off); box-shadow: 0 10px 40px rgba(0,0,0,0.06); }
+    .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 6.5rem; line-height: 1; letter-spacing: 2px; color: var(--black); }
+    .price-amount span { font-size: 2rem; vertical-align: top; margin-top: 18px; display: inline-block; color: var(--vermilion); }
+    .price-label { font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted-d); margin-top: 8px; margin-bottom: 28px; }
+    .price-guard { display: inline-block; background: rgba(230,0,35,0.08); color: var(--vermilion-deep); font-size: 0.78rem; font-weight: 600; padding: 8px 18px; border-radius: 2px; margin-bottom: 28px; letter-spacing: 0.5px; }
+    .price-features { list-style: none; text-align: left; }
+    .price-features li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.88rem; display: flex; align-items: center; gap: 12px; color: var(--black); }
+    .price-features li::before { content: "—"; color: var(--vermilion); font-weight: 700; }
+    .price-features li:last-child { border-bottom: none; }
+
+    /* BOOKING — black */
+    .booking { background: var(--black); color: var(--white); padding: 110px 40px; text-align: center; }
+    .booking .sec-title { color: var(--white); }
+    .booking-form { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+    .booking-form input, .booking-form select, .booking-form textarea { width: 100%; padding: 16px 20px; border: 1px solid rgba(255,255,255,0.15); border-radius: 2px; font-size: 0.95rem; font-family: 'Inter', sans-serif; background: var(--ink); outline: none; transition: border-color 0.2s; color: var(--white); }
+    .booking-form input::placeholder, .booking-form textarea::placeholder { color: var(--muted); }
+    .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { border-color: var(--vermilion); }
+    .booking-form textarea { resize: vertical; min-height: 110px; }
+    .booking-submit { background: var(--vermilion); color: var(--white); border: none; border-radius: 2px; padding: 18px; font-size: 0.95rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s; text-decoration: none; display: block; }
+    .booking-submit:hover { background: var(--vermilion-deep); transform: translateY(-2px); }
+    .booking-note { margin-top: 16px; font-size: 0.8rem; color: var(--muted); }
+
+    /* FAQ — white */
+    .faq-wrap { background: var(--off); padding: 110px 40px; }
+    .faq { max-width: 720px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--line); padding: 24px 0; }
+    .faq-q { font-weight: 500; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--black); }
+    .faq-q::after { content: "+"; font-size: 1.5rem; color: var(--vermilion); flex-shrink: 0; }
+    .faq-q.open::after { content: "−"; }
+    .faq-a { color: var(--muted-d); font-size: 0.88rem; line-height: 1.8; margin-top: 14px; display: none; }
+    .faq-a.open { display: block; }
+
+    /* FOOTER */
+    footer { text-align: center; padding: 56px 24px; font-size: 0.8rem; background: var(--black); color: var(--white); }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 3px; margin-bottom: 8px; display: inline-flex; align-items: center; gap: 10px; }
+    .footer-logo::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--vermilion); }
+    .footer-jp { font-family: 'Shippori Mincho', serif; color: var(--muted); letter-spacing: 4px; margin-bottom: 20px; font-size: 0.8rem; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--vermilion); }
+
+    /* STICKY CTA */
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: rgba(11,11,12,0.95); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.1); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; transform: translateY(100%); transition: transform 0.35s ease; }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-text { color: var(--white); font-size: 0.82rem; }
+    .sticky-text strong { color: var(--vermilion); }
+    .sticky-btn { background: var(--vermilion); color: var(--white); text-decoration: none; padding: 13px 28px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; transition: background 0.2s; }
+    .sticky-btn:hover { background: var(--vermilion-deep); }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 110px 24px 80px; }
+      .hero-vertical { display: none; }
+      .spots, .how, .price, .booking, .faq-wrap { padding: 72px 20px; }
+      .spots::before { font-size: 3rem; top: 20px; right: 20px; }
+      .price-card { padding: 40px 28px; }
+      .steps { flex-direction: column; align-items: center; }
+      .sticky-text { font-size: 0.74rem; }
+      .sticky-btn { padding: 12px 20px; font-size: 0.72rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">TOKYO CONCIERGE</div>
+  <ul class="nav-links">
+    <li><a href="#spots">Spots</a></li>
+    <li><a href="#how">How</a></li>
+    <li><a href="#price">Price</a></li>
+    <li><a href="#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide slide-1 active"></div>
+    <div class="hero-slide slide-2"></div>
+    <div class="hero-slide slide-3"></div>
+    <div class="hero-slide slide-4"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-jp">東京コンシェルジュ</div>
+    <h1>UNLOCK<span>TOKYO</span></h1>
+    <p class="hero-sub">Tell us where you want to go — restaurants, temples, hidden gems. We secure your spot. No Japanese needed.</p>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="trust-num">500<span>+</span></div><div class="trust-label">Reservations Made</div></div>
+      <div class="trust-item"><div class="trust-num">24<span>h</span></div><div class="trust-label">Avg. Response</div></div>
+      <div class="trust-item"><div class="trust-num">100<span>%</span></div><div class="trust-label">Refund Guarantee</div></div>
+    </div>
+    <a href="#booking" class="hero-cta">Book a Reservation →</a>
+  </div>
+  <div class="hero-vertical">あなたの東京を、解き放つ</div>
+</section>
+
+<!-- SPOTS -->
+<section class="spots" id="spots">
+  <div class="sec-head">
+    <div class="sec-jp">人気スポット</div>
+    <div class="sec-title">POPULAR SPOTS</div>
+    <p class="sec-desc">From world-famous sushi to hidden temples — here's what we book most.</p>
+  </div>
+  <div class="spots-tabs">
+    <button class="tab-btn active" onclick="filterSpots('all',this)">All</button>
+    <button class="tab-btn" onclick="filterSpots('food',this)">🍣 Food</button>
+    <button class="tab-btn" onclick="filterSpots('sightseeing',this)">🗼 Sightseeing</button>
+    <button class="tab-btn" onclick="filterSpots('experience',this)">🎌 Experience</button>
+  </div>
+  <div class="spots-grid">
+    <div class="spot-card" data-cat="food" data-index="1">
+      <img src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=600&q=80" alt="Sushi" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Sushi</span><div class="spot-name">Sukiyabashi Jiro</div><div class="spot-desc">World-famous Michelin 3-star counter. Extremely hard to book — we can help.</div></div>
+    </div>
+    <div class="spot-card" data-cat="food" data-index="2">
+      <img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80" alt="Ramen" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Ramen</span><div class="spot-name">Ichiran Shibuya</div><div class="spot-desc">Tokyo's most iconic solo ramen experience. Rich tonkotsu broth in private booths.</div></div>
+    </div>
+    <div class="spot-card" data-cat="food" data-index="3">
+      <img src="https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=600&q=80" alt="Yakiniku" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Yakiniku</span><div class="spot-name">Jojoen Roppongi</div><div class="spot-desc">Premium wagyu BBQ in an elegant setting. A must for meat lovers.</div></div>
+    </div>
+    <div class="spot-card" data-cat="sightseeing" data-index="4">
+      <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&q=80" alt="Senso-ji" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Temple</span><div class="spot-name">Senso-ji, Asakusa</div><div class="spot-desc">Tokyo's oldest temple. Iconic red gate and traditional shopping street.</div></div>
+    </div>
+    <div class="spot-card" data-cat="sightseeing" data-index="5">
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80" alt="Skytree" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Landmark</span><div class="spot-name">Tokyo Skytree</div><div class="spot-desc">634m tower with panoramic city views. Skip the line with our reservation.</div></div>
+    </div>
+    <div class="spot-card" data-cat="sightseeing" data-index="6">
+      <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=600&q=80" alt="Shibuya" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">District</span><div class="spot-name">Shibuya Crossing</div><div class="spot-desc">The world's busiest crossing. We'll book the best viewpoint cafes & restaurants.</div></div>
+    </div>
+    <div class="spot-card" data-cat="experience" data-index="7">
+      <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80" alt="Tea ceremony" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Culture</span><div class="spot-name">Tea Ceremony</div><div class="spot-desc">Authentic matcha ceremony in a traditional tatami room.</div></div>
+    </div>
+    <div class="spot-card" data-cat="experience" data-index="8">
+      <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="Kimono" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Culture</span><div class="spot-name">Kimono Experience</div><div class="spot-desc">Wear a traditional kimono and stroll historic Asakusa. Perfect for photos.</div></div>
+    </div>
+  </div>
+  <div class="spots-more">
+    <button class="more-btn" id="moreBtn" onclick="showAll()">View All Spots →</button>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="how" id="how">
+  <div class="sec-head"><div class="sec-jp">ご利用の流れ</div><div class="sec-title">HOW IT WORKS</div></div>
+  <div class="steps">
+    <div class="step"><div class="step-num">01</div><h3>Tell Us Your Plan</h3><p>Fill in the booking form with your desired spot, date, and number of guests. Any request is welcome.</p></div>
+    <div class="step"><div class="step-num">02</div><h3>We Handle It</h3><p>Our team contacts the venue directly in Japanese and secures your reservation — fast.</p></div>
+    <div class="step"><div class="step-num">03</div><h3>You Just Show Up</h3><p>Receive confirmation via DM and enjoy your Tokyo experience. It's that simple.</p></div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price" id="price">
+  <div class="sec-head"><div class="sec-jp">明朗会計</div><div class="sec-title">FLAT FEE</div><p class="sec-desc">One simple price per reservation, anywhere in Tokyo.</p></div>
+  <div class="price-card">
+    <div class="price-amount"><span>¥</span>2,000</div>
+    <div class="price-label">Per Reservation</div>
+    <div class="price-guard">✓ Full refund if we can't book it</div>
+    <ul class="price-features">
+      <li>Any restaurant or attraction in Tokyo</li>
+      <li>Direct Japanese-language contact</li>
+      <li>Confirmation sent via DM</li>
+      <li>Alternative suggestions if unavailable</li>
+    </ul>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <div class="sec-head"><div class="sec-jp">ご予約</div><div class="sec-title">MAKE A RESERVATION</div><p class="sec-desc" style="color:var(--muted)">We'll reply within 24 hours via DM.</p></div>
+  <div class="booking-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Email Address" required />
+    <input type="text" placeholder="Instagram / SNS Handle (so we can DM you)" />
+    <input type="text" placeholder="Where do you want to go?" required />
+    <input type="date" required />
+    <select>
+      <option value="">Number of Guests</option>
+      <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+    </select>
+    <textarea placeholder="Any special requests? (dietary restrictions, occasion, etc.)"></textarea>
+    <!-- Stripeの決済リンクをここに入れる -->
+    <a href="YOUR_STRIPE_PAYMENT_LINK" class="booking-submit">Pay ¥2,000 & Submit Request</a>
+    <p class="booking-note">💳 Secure payment via Stripe. Full refund if we can't secure your reservation.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-wrap" id="faq">
+  <div class="sec-head"><div class="sec-jp">よくある質問</div><div class="sec-title" style="color:var(--black)">FAQ</div></div>
+  <div class="faq">
+    <div class="faq-item"><div class="faq-q">What if the reservation isn't available?</div><div class="faq-a">We'll suggest the best alternatives. If none work for you, we'll issue a full refund — no questions asked.</div></div>
+    <div class="faq-item"><div class="faq-q">How long does it take to confirm?</div><div class="faq-a">We aim to confirm within 24 hours. For popular spots, it may take up to 48 hours depending on the venue.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I request any place in Tokyo?</div><div class="faq-a">Yes! Restaurants, tourist spots, cultural experiences, and more. Just let us know what you have in mind.</div></div>
+    <div class="faq-item"><div class="faq-q">Do I need to speak Japanese?</div><div class="faq-a">Not at all. We handle all communication with venues in Japanese on your behalf.</div></div>
+    <div class="faq-item"><div class="faq-q">How will I receive my confirmation?</div><div class="faq-a">Via DM on Instagram or the SNS handle you provide. Make sure to follow us so we can reach you!</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">TOKYO CONCIERGE</div>
+  <div class="footer-jp">あなたの東京を、解き放つ</div>
+  <p><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a> · <a href="#">Refund Policy</a></p>
+  <p style="margin-top:16px; color:var(--muted)">© 2025 Tokyo Concierge. All rights reserved.</p>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-text">Ready to explore Tokyo? <strong>¥2,000</strong> · Full refund guarantee</div>
+  <a href="#booking" class="sticky-btn">Book Now →</a>
+</div>
+
+<script>
+  // Hero slideshow
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      q.classList.toggle('open');
+      q.nextElementSibling.classList.toggle('open');
+    });
+  });
+
+  // Spot filter
+  let showingAll = false;
+  function filterSpots(cat, btn) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.spot-card').forEach(card => {
+      const matchCat = (cat === 'all' || card.dataset.cat === cat);
+      const withinLimit = showingAll || parseInt(card.dataset.index) <= 6;
+      card.classList.toggle('hidden', !(matchCat && (cat !== 'all' || withinLimit)));
+    });
+    document.getElementById('moreBtn').style.display = (cat === 'all' && !showingAll) ? 'inline-block' : 'none';
+  }
+  function showAll() {
+    showingAll = true;
+    document.querySelectorAll('.spot-card').forEach(card => card.classList.remove('hidden'));
+    document.getElementById('moreBtn').style.display = 'none';
+  }
+  // init: show only first 6
+  document.querySelectorAll('.spot-card').forEach(card => {
+    if (parseInt(card.dataset.index) > 6) card.classList.add('hidden');
+  });
+
+  // Sticky CTA — show after scrolling past hero, hide at booking
+  const sticky = document.getElementById('stickyCta');
+  const booking = document.getElementById('booking');
+  window.addEventListener('scroll', () => {
+    const past = window.scrollY > window.innerHeight * 0.9;
+    const atBooking = booking.getBoundingClientRect().top < window.innerHeight;
+    sticky.classList.toggle('show', past && !atBooking);
+  });
+</script>
+</body>
+</html>
