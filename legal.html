@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Japan Concierge – Our Promise to You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --vermilion: #E60023;
+      --vermilion-deep: #B3001B;
+      --black: #1A1A1E;
+      --white: #FFFFFF;
+      --warm: #FFFDF9;
+      --warm-card: #FFF8EE;
+      --line: #ECE7DF;
+      --muted: #7A7A82;
+      --text: #3A3A40;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--warm); color: var(--text); line-height: 1.85; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 3px; color: var(--black); display: flex; align-items: center; gap: 10px; }
+    .nav-logo::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--vermilion); }
+    .nav-back { color: var(--muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; transition: color 0.2s; }
+    .nav-back:hover { color: var(--vermilion); }
+
+    /* HERO */
+    .hero { background: linear-gradient(180deg, var(--warm-card) 0%, var(--warm) 100%); padding: 80px 40px 64px; text-align: center; }
+    .hero-jp { font-family: 'Shippori Mincho', serif; color: var(--vermilion); font-size: 0.85rem; letter-spacing: 6px; margin-bottom: 14px; }
+    .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 7vw, 76px); letter-spacing: 2px; color: var(--black); line-height: 1; }
+    .hero-welcome { max-width: 580px; margin: 24px auto 0; font-size: 1.05rem; line-height: 1.9; color: var(--text); }
+    .hero-welcome strong { color: var(--vermilion); }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 64px 40px; }
+
+    /* PROMISE CARDS at top */
+    .promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 64px; }
+    .promise { background: var(--white); border: 1px solid var(--line); border-radius: 10px; padding: 26px 20px; text-align: center; }
+    .promise-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .promise-title { font-weight: 700; font-size: 0.95rem; color: var(--black); margin-bottom: 6px; }
+    .promise-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    .toc { background: var(--warm-card); border-radius: 10px; padding: 24px 28px; margin-bottom: 56px; }
+    .toc h2 { font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .toc ul { list-style: none; }
+    .toc li { padding: 5px 0; }
+    .toc a { color: var(--black); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
+    .toc a:hover { color: var(--vermilion); }
+
+    section.legal { margin-bottom: 60px; }
+    section.legal h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px, 4vw, 46px); letter-spacing: 1px; margin-bottom: 6px; padding-top: 20px; color: var(--black); }
+    .section-jp { font-family: 'Shippori Mincho', serif; color: var(--vermilion); font-size: 0.8rem; letter-spacing: 4px; margin-bottom: 18px; }
+    .intro-note { background: var(--warm-card); border-radius: 10px; padding: 18px 24px; margin-bottom: 28px; font-size: 0.95rem; color: var(--text); line-height: 1.8; }
+    .intro-note strong { color: var(--vermilion); }
+    .updated { font-size: 0.8rem; color: var(--muted); margin-bottom: 28px; }
+    section.legal h3 { font-size: 1.05rem; font-weight: 600; margin: 28px 0 10px; color: var(--black); }
+    section.legal p { color: var(--text); font-size: 0.95rem; margin-bottom: 16px; }
+    section.legal ul { margin: 0 0 16px 22px; color: var(--text); font-size: 0.95rem; }
+    section.legal li { margin-bottom: 8px; }
+    .em { color: var(--vermilion); font-weight: 700; }
+    strong { color: var(--black); }
+    .divider { height: 1px; background: var(--line); margin: 56px 0; }
+
+    .legal-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 0.92rem; }
+    .legal-table th, .legal-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .legal-table th { width: 38%; font-weight: 600; background: var(--warm-card); color: var(--black); }
+    .legal-table td { color: var(--text); }
+
+    .highlight { background: var(--warm-card); border: 1px solid rgba(230,0,35,0.2); border-radius: 10px; padding: 20px 24px; margin: 22px 0; font-size: 0.95rem; line-height: 1.8; }
+    .highlight strong { color: var(--vermilion); }
+
+    footer { background: var(--black); color: var(--muted); text-align: center; padding: 48px 24px; font-size: 0.8rem; }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--vermilion); }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      .hero { padding: 56px 20px 40px; }
+      .container { padding: 48px 20px; }
+      .promises { grid-template-columns: 1fr; }
+      .legal-table th { width: 42%; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">JAPAN CONCIERGE</div>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-jp">あなたへのお約束</div>
+  <h1>OUR PROMISE TO YOU</h1>
+  <p class="hero-welcome">Welcome to Japan — we're so glad you're here. Before you book, here's exactly how we work and what we promise you, in <strong>plain, honest language</strong>.</p>
+</div>
+
+<div class="container">
+
+  <!-- PROMISE CARDS -->
+  <div class="promises">
+    <div class="promise">
+      <div class="promise-icon">🤝</div>
+      <div class="promise-title">Honest & Clear</div>
+      <div class="promise-desc">One flat fee. No hidden charges, ever.</div>
+    </div>
+    <div class="promise">
+      <div class="promise-icon">💯</div>
+      <div class="promise-title">Full Refund</div>
+      <div class="promise-desc">Can't book it? You get your money back.</div>
+    </div>
+    <div class="promise">
+      <div class="promise-icon">🔒</div>
+      <div class="promise-title">Your Privacy</div>
+      <div class="promise-desc">We never sell your data. Secure payment via Stripe.</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h2>Contents</h2>
+    <ul>
+      <li><a href="#terms">1. How We Work (Terms of Service)</a></li>
+      <li><a href="#refund">2. Our Refund Promise</a></li>
+      <li><a href="#privacy">3. How We Protect Your Privacy</a></li>
+      <li><a href="#legal-notice">4. Legal Notice (Specified Commercial Transactions)</a></li>
+    </ul>
+  </div>
+
+  <!-- TERMS -->
+  <section class="legal" id="terms">
+    <h2>How We Work</h2>
+    <div class="section-jp">利用規約</div>
+    <div class="intro-note">In short: <strong>you tell us where you'd like to go, and we make the booking for you.</strong> Here are the details, so there are no surprises.</div>
+    <p class="updated">Last updated: June 2026</p>
+
+    <p>Welcome to Japan Concierge ("we", "us", "our"). By using our reservation service, you ("you", "the customer") agree to the terms below. We've tried to keep them friendly and clear.</p>
+
+    <h3>1. What We Do</h3>
+    <p>We're your local friend in Tokyo. We contact restaurants, attractions, and experience venues <strong>on your behalf</strong> and request a booking based on your instructions. <span class="em">We act as an intermediary that arranges reservations — we don't own or operate the venues themselves.</span></p>
+
+    <h3>2. Our Fee</h3>
+    <p>Our service fee is a <strong>flat 2,000 JPY per reservation request</strong>. <span class="em">This is the only fee we charge.</span> Any food, drinks, admission, or service charges set by the venue are separate, and you pay those directly to the venue.</p>
+
+    <h3>3. Making a Request</h3>
+    <p>When you submit a request, please give us accurate details — your name, contact info, the venue, your preferred date, and party size. <span class="em">We can't be responsible for a booking that fails because of incorrect or incomplete information.</span></p>
+
+    <h3>4. Bookings Are Not Guaranteed</h3>
+    <p>Availability is always up to the venue. <strong>We can't promise that any specific reservation can be secured.</strong> But here's our promise: if we can't get you in, <span class="em">we'll suggest great alternatives — and if none work for you, you get a full refund.</span></p>
+
+    <h3>5. Your Part</h3>
+    <ul>
+      <li>Please arrive on time for your reservation.</li>
+      <li>Please follow any cancellation rules, fees, or deposits required by the venue.</li>
+      <li>Please respect the etiquette and rules of each place you visit.</li>
+    </ul>
+
+    <h3>6. Our Responsibility</h3>
+    <p>We can't take responsibility for the food, service, or experience the venue provides, or for any loss or inconvenience during your visit. <span class="em">Our responsibility is limited to our reservation assistance, and at most to a refund of our service fee.</span></p>
+
+    <h3>7. Updates</h3>
+    <p>We may update these terms occasionally. The latest version always lives on this page.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- REFUND -->
+  <section class="legal" id="refund">
+    <h2>Our Refund Promise</h2>
+    <div class="section-jp">返金ポリシー</div>
+    <div class="intro-note">We want you to book with total peace of mind. So our promise is simple:</div>
+    <p class="updated">Last updated: June 2026</p>
+
+    <div class="highlight">
+      <strong>If we can't secure your reservation and you don't want an alternative, you get a 100% full refund of the 2,000 JPY fee.</strong> No stress, no hassle.
+    </div>
+
+    <h3>1. You Get a Full Refund When…</h3>
+    <ul>
+      <li>We're unable to secure your requested reservation, <strong>and</strong></li>
+      <li>You decide not to accept any of the alternatives we propose.</li>
+    </ul>
+
+    <h3>2. Refunds Don't Apply When…</h3>
+    <ul>
+      <li>The reservation was <strong>successfully booked</strong> as requested.</li>
+      <li>You <strong>cancel or don't show up</strong> after the booking was confirmed.</li>
+      <li>The booking failed because of <strong>incorrect details</strong> provided by you.</li>
+    </ul>
+
+    <h3>3. How to Get Your Refund</h3>
+    <p>Just reach out to us by Instagram DM or email. <span class="em">Refunds are processed through Stripe to your original payment method, usually within 5–10 business days</span> (depending on your card issuer).</p>
+
+    <h3>4. About Venue Charges</h3>
+    <p>Any deposit or charge you pay directly to a venue follows that venue's own refund and cancellation policy, which is outside our control.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PRIVACY -->
+  <section class="legal" id="privacy">
+    <h2>Your Privacy</h2>
+    <div class="section-jp">プライバシーポリシー</div>
+    <div class="intro-note">Your trust matters to us. Here's exactly what we do — and don't do — with your information.</div>
+    <p class="updated">Last updated: June 2026</p>
+
+    <h3>1. What We Collect</h3>
+    <p>When you make a request, we collect your name, email, SNS handle, the venue you'd like, your preferred date, party size, and any special requests.</p>
+
+    <h3>2. How We Use It</h3>
+    <p>We use your information <strong>only</strong> to arrange your reservation and to keep in touch with you about it. When booking, we share with the venue just the minimum needed — usually your name, date, and party size.</p>
+
+    <h3>3. Payment</h3>
+    <p>Payments are handled securely by Stripe. <span class="em">We never see or store your full card details.</span></p>
+
+    <h3>4. We Never Sell Your Data</h3>
+    <p>We do not sell your personal information to anyone. We only share what's necessary with the venue to complete your booking, and with trusted providers like Stripe and Google to run our service.</p>
+
+    <h3>5. Keeping Your Data</h3>
+    <p>We keep your reservation details only as long as needed to provide our service and meet legal or accounting requirements.</p>
+
+    <h3>6. Questions?</h3>
+    <p>Anytime — just message us on Instagram or email <strong>y0useipc@gmail.com</strong>.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- LEGAL NOTICE -->
+  <section class="legal" id="legal-notice">
+    <h2>Legal Notice</h2>
+    <div class="section-jp">特定商取引法に基づく表記</div>
+    <p class="updated">Based on the Japanese Act on Specified Commercial Transactions</p>
+
+    <table class="legal-table">
+      <tr><th>Service Provider</th><td>Japan Concierge</td></tr>
+      <tr><th>Operator Name &amp; Address</th><td>We will disclose the operator's name and address without delay upon request. Please contact us via Instagram DM or email.</td></tr>
+      <tr><th>Contact</th><td>Instagram: @unlock_tokyo<br>Email: y0useipc@gmail.com</td></tr>
+      <tr><th>Service Fee</th><td>2,000 JPY per reservation request (tax included)</td></tr>
+      <tr><th>Additional Charges</th><td>None from us. Food, admission, and venue charges are paid directly to the venue. Internet and communication fees are the customer's responsibility.</td></tr>
+      <tr><th>Payment Method</th><td>Credit card and other methods via Stripe</td></tr>
+      <tr><th>Payment Timing</th><td>At the time of submitting your reservation request</td></tr>
+      <tr><th>Service Delivery</th><td>We begin working on your request immediately after payment and aim to confirm within 24–48 hours.</td></tr>
+      <tr><th>Refunds / Cancellations</th><td>As described in Our Refund Promise above. A full refund of the service fee is issued if we cannot secure your reservation and you decline alternatives.</td></tr>
+    </table>
+
+    <p style="font-size:0.85rem; color:var(--muted); margin-top:24px;">Note: This page is provided as general information and does not constitute legal advice.</p>
+  </section>
+
+</div>
+
+<footer>
+  <p>Made with care for travelers in Tokyo 🗼</p>
+  <p style="margin-top:8px;">© 2026 Japan Concierge. All rights reserved. · <a href="index.html">Back to Home</a></p>
+</footer>
+
+</body>
+</html>

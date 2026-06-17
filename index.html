@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tokyo Concierge – Unlock Tokyo, We Handle the Rest</title>
+  <title>Japan Concierge – Unlock Japan, We Handle the Rest</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho:wght@500;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,6 +42,14 @@
     .slide-2 { background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1400&q=80'); }
     .slide-3 { background-image: url('https://images.unsplash.com/photo-1554797589-7241bb691973?w=1400&q=80'); }
     .slide-4 { background-image: url('https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1400&q=80'); }
+    .slide-5 { background-image: url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=1400&q=80'); }
+    .slide-6 { background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1400&q=80'); }
+    .slide-7 { background-image: url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1400&q=80'); }
+    .slide-8 { background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1400&q=80'); }
+    .slide-9 { background-image: url('https://images.unsplash.com/photo-1522383225653-ed111181a951?w=1400&q=80'); }
+    .slide-10 { background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1400&q=80'); }
+    .slide-11 { background-image: url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=1400&q=80'); }
+    .slide-12 { background-image: url('https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1400&q=80'); }
 
     .hero-content { position: relative; z-index: 2; max-width: 760px; color: var(--white); }
     .hero-jp { font-family: 'Shippori Mincho', serif; color: var(--vermilion); font-size: 0.95rem; letter-spacing: 8px; margin-bottom: 20px; }
@@ -64,20 +72,20 @@
     .sec-desc { color: var(--muted-d); margin-top: 16px; font-size: 0.95rem; }
 
     /* SPOTS — white base now */
-    .spots { padding: 110px 40px; background: var(--off); position: relative; }
+    .spots { padding: 88px 40px; background: var(--off); position: relative; }
     .spots::before { content: '人気スポット'; position: absolute; top: 40px; right: 40px; font-family: 'Shippori Mincho', serif; font-size: 6rem; color: rgba(230,0,35,0.05); writing-mode: vertical-rl; letter-spacing: 4px; pointer-events: none; }
     .spots-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
     .tab-btn { background: transparent; border: 1px solid var(--line); color: var(--muted-d); padding: 9px 24px; font-size: 0.76rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; }
     .tab-btn.active, .tab-btn:hover { background: var(--vermilion); color: var(--white); border-color: var(--vermilion); }
-    .spots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-width: 1140px; margin: 0 auto; }
-    .spot-card { position: relative; border-radius: 2px; overflow: hidden; aspect-ratio: 1/1; cursor: pointer; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+    .spots-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1140px; margin: 0 auto; }
+    .spot-card { position: relative; border-radius: 2px; overflow: hidden; aspect-ratio: 3/4; cursor: pointer; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
     .spot-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
     .spot-card:hover img { transform: scale(1.08); }
     .spot-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,11,12,0.92) 0%, rgba(11,11,12,0.2) 55%, transparent 100%); }
-    .spot-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px; z-index: 2; color: var(--white); }
-    .spot-tag { display: inline-block; font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--white); background: var(--vermilion); padding: 4px 10px; margin-bottom: 10px; font-weight: 600; }
-    .spot-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; }
-    .spot-desc { color: rgba(255,255,255,0.7); font-size: 0.8rem; line-height: 1.5; max-height: 0; overflow: hidden; opacity: 0; transition: all 0.4s ease; }
+    .spot-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; z-index: 2; color: var(--white); }
+    .spot-tag { display: inline-block; font-size: 0.58rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); background: var(--vermilion); padding: 3px 8px; margin-bottom: 8px; font-weight: 600; }
+    .spot-name { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; line-height: 1.2; }
+    .spot-desc { color: rgba(255,255,255,0.7); font-size: 0.74rem; line-height: 1.45; max-height: 0; overflow: hidden; opacity: 0; transition: all 0.4s ease; }
     .spot-card:hover .spot-desc { max-height: 100px; opacity: 1; }
     .spot-card.hidden { display: none; }
     .spots-more { text-align: center; margin-top: 40px; }
@@ -85,7 +93,7 @@
     .more-btn:hover { background: var(--black); color: var(--white); }
 
     /* HOW — black */
-    .how { background: var(--black); color: var(--white); padding: 110px 40px; }
+    .how { background: var(--black); color: var(--white); padding: 88px 40px; }
     .how .sec-title { color: var(--white); }
     .steps { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
     .step { background: var(--ink); border-radius: 2px; padding: 44px 32px; flex: 1; min-width: 240px; max-width: 300px; text-align: left; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
@@ -95,20 +103,28 @@
     .step p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
 
     /* PRICE — white */
-    .price { padding: 110px 40px; text-align: center; background: var(--white); }
+    .price { padding: 88px 40px; text-align: center; background: var(--white); }
     .price .sec-title { color: var(--black); }
-    .price-card { display: inline-block; border: 1px solid var(--line); border-top: 3px solid var(--vermilion); padding: 56px 72px; text-align: center; background: var(--off); box-shadow: 0 10px 40px rgba(0,0,0,0.06); }
-    .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 6.5rem; line-height: 1; letter-spacing: 2px; color: var(--black); }
-    .price-amount span { font-size: 2rem; vertical-align: top; margin-top: 18px; display: inline-block; color: var(--vermilion); }
-    .price-label { font-size: 0.78rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted-d); margin-top: 8px; margin-bottom: 28px; }
-    .price-guard { display: inline-block; background: rgba(230,0,35,0.08); color: var(--vermilion-deep); font-size: 0.78rem; font-weight: 600; padding: 8px 18px; border-radius: 2px; margin-bottom: 28px; letter-spacing: 0.5px; }
-    .price-features { list-style: none; text-align: left; }
-    .price-features li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 0.88rem; display: flex; align-items: center; gap: 12px; color: var(--black); }
-    .price-features li::before { content: "—"; color: var(--vermilion); font-weight: 700; }
+    .price-cards { display: flex; gap: 20px; justify-content: center; align-items: stretch; flex-wrap: wrap; max-width: 1080px; margin: 0 auto; }
+    .price-card { position: relative; flex: 1; min-width: 280px; max-width: 340px; border: 1px solid var(--line); border-top: 3px solid var(--muted); padding: 40px 30px; text-align: left; background: var(--off); box-shadow: 0 10px 40px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
+    .price-card.featured { border: 1px solid var(--vermilion); border-top: 3px solid var(--vermilion); box-shadow: 0 14px 50px rgba(230,0,35,0.12); }
+    .price-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--vermilion); color: var(--white); font-size: 0.66rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 2px; white-space: nowrap; }
+    .plan-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: var(--black); margin-bottom: 4px; }
+    .plan-tagline { font-size: 0.82rem; color: var(--muted-d); margin-bottom: 22px; min-height: 36px; }
+    .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 3.8rem; line-height: 1; letter-spacing: 1px; color: var(--black); }
+    .price-amount .cur { font-size: 1.4rem; vertical-align: top; margin-top: 8px; display: inline-block; color: var(--vermilion); }
+    .price-yen { font-size: 0.85rem; color: var(--muted-d); margin: 4px 0 8px; }
+    .plan-eta { font-size: 0.74rem; color: var(--vermilion-deep); background: rgba(230,0,35,0.06); display: inline-block; padding: 5px 12px; border-radius: 2px; margin-bottom: 20px; letter-spacing: 0.3px; font-weight: 600; }
+    .price-features { list-style: none; text-align: left; flex: 1; }
+    .price-features li { padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 0.86rem; display: flex; align-items: flex-start; gap: 10px; color: var(--black); line-height: 1.5; }
+    .price-features li::before { content: "—"; color: var(--vermilion); font-weight: 700; flex-shrink: 0; }
+    .price-features li.muted { color: var(--muted); }
+    .price-features li.muted::before { content: "—"; color: var(--line); }
     .price-features li:last-child { border-bottom: none; }
+    .plan-guard { display: inline-block; background: rgba(230,0,35,0.08); color: var(--vermilion-deep); font-size: 0.74rem; font-weight: 600; padding: 7px 14px; border-radius: 2px; margin-top: 20px; letter-spacing: 0.3px; align-self: flex-start; }
 
     /* BOOKING — black */
-    .booking { background: var(--black); color: var(--white); padding: 110px 40px; text-align: center; }
+    .booking { background: var(--black); color: var(--white); padding: 88px 40px; text-align: center; }
     .booking .sec-title { color: var(--white); }
     .booking-form { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
     .booking-form input, .booking-form select, .booking-form textarea { width: 100%; padding: 16px 20px; border: 1px solid rgba(255,255,255,0.15); border-radius: 2px; font-size: 0.95rem; font-family: 'Inter', sans-serif; background: var(--ink); outline: none; transition: border-color 0.2s; color: var(--white); }
@@ -120,7 +136,7 @@
     .booking-note { margin-top: 16px; font-size: 0.8rem; color: var(--muted); }
 
     /* FAQ — white */
-    .faq-wrap { background: var(--off); padding: 110px 40px; }
+    .faq-wrap { background: var(--off); padding: 88px 40px; }
     .faq { max-width: 720px; margin: 0 auto; }
     .faq-item { border-bottom: 1px solid var(--line); padding: 24px 0; }
     .faq-q { font-weight: 500; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--black); }
@@ -128,6 +144,33 @@
     .faq-q.open::after { content: "−"; }
     .faq-a { color: var(--muted-d); font-size: 0.88rem; line-height: 1.8; margin-top: 14px; display: none; }
     .faq-a.open { display: block; }
+
+    /* WHY / STORY */
+    .why { background: var(--off); color: var(--black); padding: 88px 40px; position: relative; overflow: hidden; }
+    .why::before { content: '想'; position: absolute; top: 40px; right: 6%; font-family: 'Shippori Mincho', serif; font-size: 16rem; color: rgba(230,0,35,0.04); line-height: 1; pointer-events: none; user-select: none; }
+    .why-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
+    .why .sec-jp { text-align: center; }
+    .why .sec-title { text-align: center; color: var(--black); }
+    .why-lead { text-align: center; font-size: 1.3rem; line-height: 1.9; color: var(--black); margin: 8px 0 56px; font-weight: 500; }
+    .why-lead strong { color: var(--vermilion); }
+    .why-story { font-size: 1rem; line-height: 2; color: #333; }
+    /* scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    /* chapter blocks */
+    .why-chapter { display: flex; gap: 24px; margin-bottom: 40px; align-items: flex-start; }
+    .why-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--vermilion); line-height: 1; flex-shrink: 0; width: 56px; opacity: 0.5; }
+    .why-text p { margin-bottom: 14px; }
+    .why-text strong { color: var(--black); font-weight: 600; }
+    /* big quote */
+    .why-quote { text-align: center; font-family: 'Shippori Mincho', serif; font-size: clamp(1.3rem, 3.5vw, 2rem); line-height: 1.7; color: var(--black); margin: 56px 0; padding: 0 20px; position: relative; }
+    .why-quote::before { content: '“'; font-size: 5rem; color: rgba(230,0,35,0.15); position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-family: 'Shippori Mincho', serif; }
+    .why-quote .q-sub { display: block; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--muted-d); margin-top: 16px; letter-spacing: 1px; }
+    /* closing */
+    .why-closing { text-align: center; font-size: 1.15rem; line-height: 1.9; color: var(--black); margin: 48px 0 32px; font-weight: 500; }
+    .why-closing strong { color: var(--vermilion); }
+    .why-sign { text-align: center; margin-top: 32px; font-family: 'Shippori Mincho', serif; font-size: 1rem; color: var(--muted-d); }
+    .why-sign strong { color: var(--black); }
 
     /* FOOTER */
     footer { text-align: center; padding: 56px 24px; font-size: 0.8rem; background: var(--black); color: var(--white); }
@@ -145,28 +188,39 @@
     .sticky-btn { background: var(--vermilion); color: var(--white); text-decoration: none; padding: 13px 28px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; transition: background 0.2s; }
     .sticky-btn:hover { background: var(--vermilion-deep); }
 
+    @media (max-width: 980px) {
+      .spots-grid { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 640px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
       .hero { padding: 110px 24px 80px; }
       .hero-vertical { display: none; }
-      .spots, .how, .price, .booking, .faq-wrap { padding: 72px 20px; }
+      .spots, .how, .price, .booking, .faq-wrap, .why { padding: 64px 20px; }
       .spots::before { font-size: 3rem; top: 20px; right: 20px; }
-      .price-card { padding: 40px 28px; }
+      .spots-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .spot-overlay { padding: 12px; }
+      .spot-name { font-size: 0.82rem; }
+      .spot-desc { font-size: 0.68rem; }
+      .price-cards { gap: 16px; }
+      .price-card { padding: 32px 24px; max-width: 100%; }
       .steps { flex-direction: column; align-items: center; }
       .sticky-text { font-size: 0.74rem; }
       .sticky-btn { padding: 12px 20px; font-size: 0.72rem; }
+      .why-chapter { gap: 14px; }
+      .why-num { font-size: 1.8rem; width: 40px; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">TOKYO CONCIERGE</div>
+  <div class="nav-logo">JAPAN CONCIERGE</div>
   <ul class="nav-links">
     <li><a href="#spots">Spots</a></li>
     <li><a href="#how">How</a></li>
     <li><a href="#price">Price</a></li>
+    <li><a href="#why">Story</a></li>
     <li><a href="#booking" class="nav-cta">Book Now</a></li>
   </ul>
 </nav>
@@ -178,70 +232,165 @@
     <div class="hero-slide slide-2"></div>
     <div class="hero-slide slide-3"></div>
     <div class="hero-slide slide-4"></div>
+    <div class="hero-slide slide-5"></div>
+    <div class="hero-slide slide-6"></div>
+    <div class="hero-slide slide-7"></div>
+    <div class="hero-slide slide-8"></div>
+    <div class="hero-slide slide-9"></div>
+    <div class="hero-slide slide-10"></div>
+    <div class="hero-slide slide-11"></div>
+    <div class="hero-slide slide-12"></div>
   </div>
   <div class="hero-content">
-    <div class="hero-jp">東京コンシェルジュ</div>
-    <h1>UNLOCK<span>TOKYO</span></h1>
-    <p class="hero-sub">Tell us where you want to go — restaurants, temples, hidden gems. We secure your spot. No Japanese needed.</p>
+    <div class="hero-jp">ジャパンコンシェルジュ</div>
+    <h1>UNLOCK<span>JAPAN</span></h1>
+    <p class="hero-sub">Tokyo, Kyoto, and beyond — tell us where you want to go. We're your local friend in Japan who handles the booking. No Japanese needed.</p>
     <div class="hero-trust">
       <div class="trust-item"><div class="trust-num">500<span>+</span></div><div class="trust-label">Reservations Made</div></div>
-      <div class="trust-item"><div class="trust-num">24<span>h</span></div><div class="trust-label">Avg. Response</div></div>
+      <div class="trust-item"><div class="trust-num">24<span>h</span></div><div class="trust-label">Reply Within</div></div>
       <div class="trust-item"><div class="trust-num">100<span>%</span></div><div class="trust-label">Refund Guarantee</div></div>
     </div>
     <a href="#booking" class="hero-cta">Book a Reservation →</a>
   </div>
-  <div class="hero-vertical">あなたの東京を、解き放つ</div>
+  <div class="hero-vertical">あなたの日本を、解き放つ</div>
 </section>
 
 <!-- SPOTS -->
 <section class="spots" id="spots">
   <div class="sec-head">
-    <div class="sec-jp">人気スポット</div>
-    <div class="sec-title">POPULAR SPOTS</div>
-    <p class="sec-desc">From world-famous sushi to hidden temples — here's what we book most.</p>
+    <div class="sec-jp">予約できるもの</div>
+    <div class="sec-title">WHAT WE CAN BOOK</div>
+    <p class="sec-desc">From impossible-to-book sushi to whisky distilleries and theme parks — if it's in Japan, we'll try to get you in.</p>
   </div>
   <div class="spots-tabs">
     <button class="tab-btn active" onclick="filterSpots('all',this)">All</button>
     <button class="tab-btn" onclick="filterSpots('food',this)">🍣 Food</button>
-    <button class="tab-btn" onclick="filterSpots('sightseeing',this)">🗼 Sightseeing</button>
+    <button class="tab-btn" onclick="filterSpots('sightseeing',this)">⛩ Sightseeing</button>
+    <button class="tab-btn" onclick="filterSpots('themepark',this)">🎢 Theme Parks</button>
+    <button class="tab-btn" onclick="filterSpots('nature',this)">🏔 Nature</button>
+    <button class="tab-btn" onclick="filterSpots('sports',this)">⚾ Sports</button>
+    <button class="tab-btn" onclick="filterSpots('tour',this)">🥃 Tours</button>
     <button class="tab-btn" onclick="filterSpots('experience',this)">🎌 Experience</button>
   </div>
   <div class="spots-grid">
+
+    <!-- FOOD -->
     <div class="spot-card" data-cat="food" data-index="1">
       <img src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=600&q=80" alt="Sushi" loading="lazy" />
-      <div class="spot-overlay"><span class="spot-tag">Sushi</span><div class="spot-name">Sukiyabashi Jiro</div><div class="spot-desc">World-famous Michelin 3-star counter. Extremely hard to book — we can help.</div></div>
+      <div class="spot-overlay"><span class="spot-tag">Sushi</span><div class="spot-name">Edomae Sushi</div><div class="spot-desc">World-famous Michelin counters. Extremely hard to book — we can help.</div></div>
     </div>
     <div class="spot-card" data-cat="food" data-index="2">
       <img src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80" alt="Ramen" loading="lazy" />
-      <div class="spot-overlay"><span class="spot-tag">Ramen</span><div class="spot-name">Ichiran Shibuya</div><div class="spot-desc">Tokyo's most iconic solo ramen experience. Rich tonkotsu broth in private booths.</div></div>
+      <div class="spot-overlay"><span class="spot-tag">Ramen</span><div class="spot-name">Iconic Ramen</div><div class="spot-desc">Tokyo's most famous bowls. Rich tonkotsu broth, often with long lines.</div></div>
     </div>
     <div class="spot-card" data-cat="food" data-index="3">
-      <img src="https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=600&q=80" alt="Yakiniku" loading="lazy" />
-      <div class="spot-overlay"><span class="spot-tag">Yakiniku</span><div class="spot-name">Jojoen Roppongi</div><div class="spot-desc">Premium wagyu BBQ in an elegant setting. A must for meat lovers.</div></div>
+      <img src="https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=600&q=80" alt="Wagyu" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Wagyu</span><div class="spot-name">A5 Wagyu & Yakiniku</div><div class="spot-desc">Premium Japanese beef, grilled to perfection. A must for meat lovers.</div></div>
     </div>
-    <div class="spot-card" data-cat="sightseeing" data-index="4">
+    <div class="spot-card" data-cat="food" data-index="4">
+      <img src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=600&q=80" alt="Teppanyaki" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Teppanyaki</span><div class="spot-name">Teppanyaki Dinner</div><div class="spot-desc">Chef-performed grilling right at your table. Dinner and a show.</div></div>
+    </div>
+
+    <!-- SIGHTSEEING -->
+    <div class="spot-card" data-cat="sightseeing" data-index="5">
       <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&q=80" alt="Senso-ji" loading="lazy" />
       <div class="spot-overlay"><span class="spot-tag">Temple</span><div class="spot-name">Senso-ji, Asakusa</div><div class="spot-desc">Tokyo's oldest temple. Iconic red gate and traditional shopping street.</div></div>
     </div>
-    <div class="spot-card" data-cat="sightseeing" data-index="5">
-      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80" alt="Skytree" loading="lazy" />
-      <div class="spot-overlay"><span class="spot-tag">Landmark</span><div class="spot-name">Tokyo Skytree</div><div class="spot-desc">634m tower with panoramic city views. Skip the line with our reservation.</div></div>
-    </div>
     <div class="spot-card" data-cat="sightseeing" data-index="6">
-      <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=600&q=80" alt="Shibuya" loading="lazy" />
-      <div class="spot-overlay"><span class="spot-tag">District</span><div class="spot-name">Shibuya Crossing</div><div class="spot-desc">The world's busiest crossing. We'll book the best viewpoint cafes & restaurants.</div></div>
+      <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80" alt="Kyoto" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Kyoto</span><div class="spot-name">Fushimi Inari, Kyoto</div><div class="spot-desc">Thousands of vermilion torii gates winding up the mountain.</div></div>
     </div>
-    <div class="spot-card" data-cat="experience" data-index="7">
+    <div class="spot-card" data-cat="sightseeing" data-index="7">
+      <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=600&q=80" alt="Mt Fuji" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Nature</span><div class="spot-name">Mt. Fuji Views</div><div class="spot-desc">Day trips to Hakone & Kawaguchiko with the perfect Fuji backdrop.</div></div>
+    </div>
+    <div class="spot-card" data-cat="sightseeing" data-index="8">
+      <img src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=600&q=80" alt="Shibuya" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">City</span><div class="spot-name">Shibuya & Skytree</div><div class="spot-desc">Observation decks and the best viewpoint cafes — skip the lines.</div></div>
+    </div>
+
+    <!-- THEME PARKS -->
+    <div class="spot-card" data-cat="themepark" data-index="9">
+      <img src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=600&q=80" alt="Theme park" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Osaka</span><div class="spot-name">Universal Studios Japan</div><div class="spot-desc">Express passes & timed-entry tickets — we help you skip the wait.</div></div>
+    </div>
+    <div class="spot-card" data-cat="themepark" data-index="10">
+      <img src="https://images.unsplash.com/photo-1624601573012-efb68931cc8f?w=600&q=80" alt="Digital art museum" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Digital Art</span><div class="spot-name">teamLab</div><div class="spot-desc">Immersive digital art worlds. Timed tickets sell out fast.</div></div>
+    </div>
+    <div class="spot-card" data-cat="themepark" data-index="11">
+      <img src="https://images.unsplash.com/photo-1542931287-023b922fa89b?w=600&q=80" alt="Character cafe" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Cafe</span><div class="spot-name">Character & Themed Cafes</div><div class="spot-desc">Pokémon Cafe and more — reservation-only spots we can secure for you.</div></div>
+    </div>
+    <div class="spot-card" data-cat="themepark" data-index="12">
+      <img src="https://images.unsplash.com/photo-1551801841-ecad875a5142?w=600&q=80" alt="Forest park" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Nagoya</span><div class="spot-name">Ghibli Park</div><div class="spot-desc">Date-specific tickets that sell out instantly. Let us watch for openings.</div></div>
+    </div>
+
+    <!-- NATURE & ADVENTURE -->
+    <div class="spot-card" data-cat="nature" data-index="13">
+      <img src="https://images.unsplash.com/photo-1530866495561-507c9faab2ed?w=600&q=80" alt="Rafting" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Adventure</span><div class="spot-name">River Rafting</div><div class="spot-desc">Whitewater rafting in mountain valleys — guided tours, all gear included.</div></div>
+    </div>
+    <div class="spot-card" data-cat="nature" data-index="14">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Snorkeling" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Okinawa</span><div class="spot-name">Snorkeling & Diving</div><div class="spot-desc">Crystal-clear waters and coral reefs in Okinawa and beyond.</div></div>
+    </div>
+    <div class="spot-card" data-cat="nature" data-index="15">
+      <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80" alt="Hiking" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Hiking</span><div class="spot-name">Guided Mountain Hikes</div><div class="spot-desc">From Mt. Fuji to hidden trails — guided treks for every level.</div></div>
+    </div>
+    <div class="spot-card" data-cat="nature" data-index="16">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Onsen" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Onsen</span><div class="spot-name">Private Onsen</div><div class="spot-desc">Reserve a private hot-spring bath with mountain or river views.</div></div>
+    </div>
+
+    <!-- SPORTS -->
+    <div class="spot-card" data-cat="sports" data-index="17">
+      <img src="https://images.unsplash.com/photo-1607627000458-210e8d2bdb1d?w=600&q=80" alt="Baseball" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Baseball</span><div class="spot-name">Pro Baseball Game</div><div class="spot-desc">Experience Japan's electric baseball culture. Great seats secured.</div></div>
+    </div>
+    <div class="spot-card" data-cat="sports" data-index="18">
+      <img src="https://images.unsplash.com/photo-1554797589-7241bb691973?w=600&q=80" alt="Sumo" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Sumo</span><div class="spot-name">Grand Sumo Tournament</div><div class="spot-desc">Witness Japan's national sport live. Tickets are notoriously hard to get.</div></div>
+    </div>
+    <div class="spot-card" data-cat="sports" data-index="19">
+      <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&q=80" alt="Soccer" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Football</span><div class="spot-name">J-League Football</div><div class="spot-desc">Catch a live match with passionate local supporters.</div></div>
+    </div>
+
+    <!-- TOURS & TASTINGS -->
+    <div class="spot-card" data-cat="tour" data-index="20">
+      <img src="https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=600&q=80" alt="Whisky" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Whisky</span><div class="spot-name">Whisky Distillery Tour</div><div class="spot-desc">Visit a Japanese whisky distillery — tours & tastings book out months ahead.</div></div>
+    </div>
+    <div class="spot-card" data-cat="tour" data-index="21">
+      <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=80" alt="Sake" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Sake</span><div class="spot-name">Sake Brewery Visit</div><div class="spot-desc">Tour a traditional sake brewery and taste straight from the source.</div></div>
+    </div>
+    <div class="spot-card" data-cat="tour" data-index="22">
+      <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80" alt="Tea" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Tea</span><div class="spot-name">Matcha & Tea Tasting</div><div class="spot-desc">Guided tastings in historic tea houses and gardens.</div></div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="spot-card" data-cat="experience" data-index="23">
       <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600&q=80" alt="Tea ceremony" loading="lazy" />
       <div class="spot-overlay"><span class="spot-tag">Culture</span><div class="spot-name">Tea Ceremony</div><div class="spot-desc">Authentic matcha ceremony in a traditional tatami room.</div></div>
     </div>
-    <div class="spot-card" data-cat="experience" data-index="8">
+    <div class="spot-card" data-cat="experience" data-index="24">
       <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=600&q=80" alt="Kimono" loading="lazy" />
-      <div class="spot-overlay"><span class="spot-tag">Culture</span><div class="spot-name">Kimono Experience</div><div class="spot-desc">Wear a traditional kimono and stroll historic Asakusa. Perfect for photos.</div></div>
+      <div class="spot-overlay"><span class="spot-tag">Culture</span><div class="spot-name">Kimono Experience</div><div class="spot-desc">Wear a traditional kimono and stroll historic streets. Perfect for photos.</div></div>
     </div>
+    <div class="spot-card" data-cat="experience" data-index="25">
+      <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?w=600&q=80" alt="Cooking class" loading="lazy" />
+      <div class="spot-overlay"><span class="spot-tag">Hands-on</span><div class="spot-name">Cooking Class</div><div class="spot-desc">Learn to make sushi or ramen from a local chef.</div></div>
+    </div>
+
   </div>
   <div class="spots-more">
-    <button class="more-btn" id="moreBtn" onclick="showAll()">View All Spots →</button>
+    <button class="more-btn" id="moreBtn" onclick="showAll()">View All 25 Spots ↓</button>
   </div>
 </section>
 
@@ -257,17 +406,62 @@
 
 <!-- PRICE -->
 <section class="price" id="price">
-  <div class="sec-head"><div class="sec-jp">明朗会計</div><div class="sec-title">FLAT FEE</div><p class="sec-desc">One simple price per reservation, anywhere in Tokyo.</p></div>
-  <div class="price-card">
-    <div class="price-amount"><span>¥</span>2,000</div>
-    <div class="price-label">Per Reservation</div>
-    <div class="price-guard">✓ Full refund if we can't book it</div>
-    <ul class="price-features">
-      <li>Any restaurant or attraction in Tokyo</li>
-      <li>Direct Japanese-language contact</li>
-      <li>Confirmation sent via DM</li>
-      <li>Alternative suggestions if unavailable</li>
-    </ul>
+  <div class="sec-head"><div class="sec-jp">料金プラン</div><div class="sec-title">CHOOSE YOUR PLAN</div><p class="sec-desc">Simple, honest pricing. Start with Standard, or go Premium for the full concierge experience.</p></div>
+  <div class="price-cards">
+
+    <!-- STANDARD -->
+    <div class="price-card">
+      <div class="plan-name">STANDARD</div>
+      <div class="plan-tagline">Book that one place you can't miss.</div>
+      <div class="price-amount"><span class="cur">$</span>15</div>
+      <div class="price-yen">approx. ¥2,000</div>
+      <div class="plan-eta">⏱ Same day – 1 day</div>
+      <ul class="price-features">
+        <li>Reservation for a restaurant, attraction, or experience</li>
+        <li>We contact the venue in Japanese for you</li>
+        <li>Confirmation sent via DM</li>
+        <li>Alternative suggestions if fully booked</li>
+        <li>Reply within 24h</li>
+      </ul>
+      <div class="plan-guard">✓ Full refund if we can't book it</div>
+    </div>
+
+    <!-- PLUS -->
+    <div class="price-card featured">
+      <div class="price-badge">Most popular</div>
+      <div class="plan-name">PLUS</div>
+      <div class="plan-tagline">Reservations, plus a local's map.</div>
+      <div class="price-amount"><span class="cur">$</span>25</div>
+      <div class="price-yen">approx. ¥3,500</div>
+      <div class="plan-eta">⏱ About 2 days</div>
+      <ul class="price-features">
+        <li>Everything in Standard</li>
+        <li>Custom map of recommended spots nearby</li>
+        <li>Light chat support during your stay (ask us by DM)</li>
+        <li>Reply within 24h</li>
+      </ul>
+      <div class="plan-guard">✓ Full refund if we can't book it</div>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="price-card">
+      <div class="plan-name">PREMIUM</div>
+      <div class="plan-tagline">Your personal concierge for the whole trip.</div>
+      <div class="price-amount"><span class="cur">$</span>50</div>
+      <div class="price-yen">approx. ¥7,000</div>
+      <div class="plan-eta">⏱ About 3 days</div>
+      <ul class="price-features">
+        <li>Everything in Plus</li>
+        <li>Reservations for up to 3 venues</li>
+        <li>Full guide for trains & hotels (how & where to book)</li>
+        <li>Special requests &amp; anniversary surprises arranged</li>
+        <li>Unlimited chat concierge during your stay</li>
+        <li>WhatsApp / LINE available on request</li>
+      </ul>
+      <div class="plan-guard">✓ Full refund if we can't book it</div>
+      <p style="font-size:0.72rem; color:var(--muted); margin-top:14px; line-height:1.6;">* Trains & hotels: we guide you through the best options and how to book — you complete the booking yourself.</p>
+    </div>
+
   </div>
 </section>
 
@@ -291,6 +485,48 @@
 </section>
 
 <!-- FAQ -->
+<!-- WHY WE DO THIS -->
+<section class="why" id="why">
+  <div class="why-inner">
+    <div class="sec-jp">私たちの想い</div>
+    <div class="sec-title">WHY WE DO THIS</div>
+    <p class="why-lead reveal">We believe everyone who comes to Japan deserves <strong>more than the tourist version</strong> of it.</p>
+
+    <div class="why-chapter reveal">
+      <div class="why-num">01</div>
+      <div class="why-text">
+        <p>Japan Concierge started behind a <strong>cocktail bar in Ginza</strong>.</p>
+        <p>One of our founders, Akira, spent his nights mixing drinks for travelers from all over the world. Night after night, he heard the same thing: <strong>"We wanted to go somewhere special — but we couldn't book it."</strong></p>
+      </div>
+    </div>
+
+    <div class="why-chapter reveal">
+      <div class="why-num">02</div>
+      <div class="why-text">
+        <p>The best spots in Japan often take reservations <strong>by phone only, in Japanese</strong>. Many places barely show up online in English.</p>
+        <p>So visitors ended up going to the same handful of famous restaurants as everyone else — and kept asking him one question:</p>
+      </div>
+    </div>
+
+    <div class="why-quote reveal">
+      Isn't there somewhere only locals know about? Somewhere we could actually get into?
+      <span class="q-sub">— what travelers asked Akira, night after night</span>
+    </div>
+
+    <div class="why-chapter reveal">
+      <div class="why-num">03</div>
+      <div class="why-text">
+        <p>We've felt it from the other side too. Traveling abroad, we always wished we had <strong>a local friend</strong> we could just ask — someone to handle the booking, the language, the little things that stand between you and a perfect night.</p>
+        <p>So we built exactly that. <strong>We're the local friend who picks up the phone for you.</strong> Tell us where you want to go — famous or hidden, simple or impossible — and we'll do everything we can to get you in.</p>
+      </div>
+    </div>
+
+    <p class="why-closing reveal">Because the memory of one perfect evening in Japan can stay with you for the rest of your life.<br><strong>We'd love to help you make it.</strong></p>
+    <div class="why-sign reveal">— Akira &amp; the Japan Concierge team</div>
+  </div>
+</section>
+
+<!-- FAQ -->
 <section class="faq-wrap" id="faq">
   <div class="sec-head"><div class="sec-jp">よくある質問</div><div class="sec-title" style="color:var(--black)">FAQ</div></div>
   <div class="faq">
@@ -299,13 +535,15 @@
     <div class="faq-item"><div class="faq-q">Can I request any place in Tokyo?</div><div class="faq-a">Yes! Restaurants, tourist spots, cultural experiences, and more. Just let us know what you have in mind.</div></div>
     <div class="faq-item"><div class="faq-q">Do I need to speak Japanese?</div><div class="faq-a">Not at all. We handle all communication with venues in Japanese on your behalf.</div></div>
     <div class="faq-item"><div class="faq-q">How will I receive my confirmation?</div><div class="faq-a">Via DM on Instagram or the SNS handle you provide. Make sure to follow us so we can reach you!</div></div>
+    <div class="faq-item"><div class="faq-q">When can I reach you? (response hours)</div><div class="faq-a">We reply within 24 hours, every day. Requests sent late at night are handled the next morning (Japan time). For urgent same-day needs, mention it in your message and we'll do our best.</div></div>
+    <div class="faq-item"><div class="faq-q">How do refunds work?</div><div class="faq-a">If we can't secure your reservation and none of our alternatives work for you, just message us by DM or email (y0useipc@gmail.com). We'll refund the full fee through Stripe, usually within 5–10 business days.</div></div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">TOKYO CONCIERGE</div>
-  <div class="footer-jp">あなたの東京を、解き放つ</div>
-  <p><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a> · <a href="#">Refund Policy</a></p>
+  <div class="footer-logo">JAPAN CONCIERGE</div>
+  <div class="footer-jp">あなたの日本を、解き放つ</div>
+  <p><a href="legal.html#privacy">Privacy Policy</a> · <a href="legal.html#terms">Terms of Service</a> · <a href="legal.html#refund">Refund Policy</a></p>
   <p style="margin-top:16px; color:var(--muted)">© 2025 Tokyo Concierge. All rights reserved.</p>
 </footer>
 
@@ -357,7 +595,7 @@
       body: JSON.stringify(data)
     })
     .then(() => {
-      note.textContent = "✓ Request received! Redirecting to secure payment...";
+      note.textContent = "✓ Request received! Please use the SAME NAME on the next payment page. Redirecting...";
       btn.textContent = "Redirecting...";
       setTimeout(() => { window.location.href = STRIPE_URL; }, 1200);
     })
@@ -367,6 +605,19 @@
       setTimeout(() => { window.location.href = STRIPE_URL; }, 1200);
     });
   }
+  // Scroll reveal for Why section
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => obs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
   // Hero slideshow
   const slides = document.querySelectorAll('.hero-slide');
   let current = 0;
@@ -385,25 +636,29 @@
   });
 
   // Spot filter
+  const INITIAL_SHOW = 8;
   let showingAll = false;
   function filterSpots(cat, btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.spot-card').forEach(card => {
       const matchCat = (cat === 'all' || card.dataset.cat === cat);
-      const withinLimit = showingAll || parseInt(card.dataset.index) <= 6;
-      card.classList.toggle('hidden', !(matchCat && (cat !== 'all' || withinLimit)));
+      // 「All」かつ未展開のときだけ最初の8枚に絞る。カテゴリ選択時は全件表示
+      const withinLimit = (cat !== 'all') || showingAll || parseInt(card.dataset.index) <= INITIAL_SHOW;
+      card.classList.toggle('hidden', !(matchCat && withinLimit));
     });
     document.getElementById('moreBtn').style.display = (cat === 'all' && !showingAll) ? 'inline-block' : 'none';
   }
   function showAll() {
     showingAll = true;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.tab-btn').classList.add('active'); // Allをアクティブに
     document.querySelectorAll('.spot-card').forEach(card => card.classList.remove('hidden'));
     document.getElementById('moreBtn').style.display = 'none';
   }
-  // init: show only first 6
+  // init: show only first 8
   document.querySelectorAll('.spot-card').forEach(card => {
-    if (parseInt(card.dataset.index) > 6) card.classList.add('hidden');
+    if (parseInt(card.dataset.index) > INITIAL_SHOW) card.classList.add('hidden');
   });
 
   // Sticky CTA — show after scrolling past hero, hide at booking
