@@ -108,6 +108,15 @@
     .price-cards { display: flex; gap: 20px; justify-content: center; align-items: stretch; flex-wrap: wrap; max-width: 1080px; margin: 0 auto; }
     .price-card { position: relative; flex: 1; min-width: 280px; max-width: 340px; border: 1px solid var(--line); border-top: 3px solid var(--muted); padding: 40px 30px; text-align: left; background: var(--off); box-shadow: 0 10px 40px rgba(0,0,0,0.06); display: flex; flex-direction: column; }
     .price-card.featured { border: 1px solid var(--vermilion); border-top: 3px solid var(--vermilion); box-shadow: 0 14px 50px rgba(230,0,35,0.12); }
+    .price-card.premium { border: 1px solid var(--black); border-top: 3px solid var(--black); background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%); box-shadow: 0 16px 56px rgba(0,0,0,0.22); }
+    .price-card.premium .plan-name,
+    .price-card.premium .price-amount { color: #fff; }
+    .price-card.premium .plan-tagline { color: rgba(255,255,255,0.55); }
+    .price-card.premium .price-features li { color: rgba(255,255,255,0.88); border-bottom-color: rgba(255,255,255,0.1); }
+    .price-card.premium .price-amount .cur { color: var(--gold, #d4af37); }
+    .price-card.premium .plan-eta { color: #d4af37; background: rgba(212,175,55,0.12); }
+    .price-card.premium .plan-guard { background: rgba(212,175,55,0.14); color: #e6c65a; }
+    .price-badge.gold { background: linear-gradient(135deg, #d4af37, #b8902a); color: #1a1a1a; }
     .price-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--vermilion); color: var(--white); font-size: 0.66rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 2px; white-space: nowrap; }
     .plan-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: var(--black); margin-bottom: 4px; }
     .plan-tagline { font-size: 0.82rem; color: var(--muted-d); margin-bottom: 22px; min-height: 36px; }
@@ -122,10 +131,25 @@
     .price-features li.muted::before { content: "—"; color: var(--line); }
     .price-features li:last-child { border-bottom: none; }
     .plan-guard { display: inline-block; background: rgba(230,0,35,0.08); color: var(--vermilion-deep); font-size: 0.74rem; font-weight: 600; padding: 7px 14px; border-radius: 2px; margin-top: 20px; letter-spacing: 0.3px; align-self: flex-start; }
+    .plan-btn { display: block; width: 100%; margin-top: 24px; padding: 16px; background: var(--black); color: var(--white); text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; border-radius: 2px; text-decoration: none; transition: background 0.25s, transform 0.25s; border: 1px solid var(--black); }
+    .plan-btn:hover { background: var(--vermilion); border-color: var(--vermilion); transform: translateY(-2px); }
+    .price-card.featured .plan-btn { background: var(--vermilion); border-color: var(--vermilion); }
+    .price-card.featured .plan-btn:hover { background: var(--vermilion-deep); border-color: var(--vermilion-deep); }
+    .currency-note { max-width: 1080px; margin: 0 auto 36px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; background: var(--off); border: 1px solid var(--line); border-radius: 4px; padding: 14px 24px; font-size: 0.9rem; color: var(--black); }
+    .currency-note .cn-icon { font-size: 1.1rem; }
+    .currency-note strong { color: var(--vermilion-deep); font-weight: 700; letter-spacing: 0.5px; }
 
     /* BOOKING — black */
     .booking { background: var(--black); color: var(--white); padding: 88px 40px; text-align: center; }
     .booking .sec-title { color: var(--white); }
+    .booking-steps { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 820px; margin: 0 auto 44px; }
+    .bstep { flex: 1; min-width: 180px; background: var(--ink); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 28px 20px; }
+    .bstep-num { width: 36px; height: 36px; line-height: 36px; border-radius: 50%; background: var(--vermilion); color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; margin: 0 auto 14px; }
+    .bstep-label { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+    .bstep-desc { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+    .bstep-arrow { color: var(--vermilion); font-size: 1.4rem; font-weight: 700; }
+    .booking-cta { display: inline-block; background: var(--vermilion); color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; padding: 18px 48px; border-radius: 2px; text-decoration: none; transition: background 0.25s, transform 0.25s; }
+    .booking-cta:hover { background: var(--vermilion-deep); transform: translateY(-2px); }
     .booking-form { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
     .booking-form input, .booking-form select, .booking-form textarea { width: 100%; padding: 16px 20px; border: 1px solid rgba(255,255,255,0.15); border-radius: 2px; font-size: 0.95rem; font-family: 'Inter', sans-serif; background: var(--ink); outline: none; transition: border-color 0.2s; color: var(--white); }
     .booking-form input::placeholder, .booking-form textarea::placeholder { color: var(--muted); }
@@ -407,6 +431,12 @@
 <!-- PRICE -->
 <section class="price" id="price">
   <div class="sec-head"><div class="sec-jp">料金プラン</div><div class="sec-title">CHOOSE YOUR PLAN</div><p class="sec-desc">Simple, honest pricing. Start with Standard, or go Premium for the full concierge experience.</p></div>
+
+  <div class="currency-note">
+    <span class="cn-icon">💳</span>
+    <span>Pay securely in <strong>USD</strong>. We also accept <strong>EUR</strong> &amp; <strong>JPY</strong> — just pick your currency at checkout.</span>
+  </div>
+
   <div class="price-cards">
 
     <!-- STANDARD -->
@@ -414,7 +444,6 @@
       <div class="plan-name">STANDARD</div>
       <div class="plan-tagline">Book that one place you can't miss.</div>
       <div class="price-amount"><span class="cur">$</span>15</div>
-      <div class="price-yen">approx. ¥2,000</div>
       <div class="plan-eta">⏱ Same day – 1 day</div>
       <ul class="price-features">
         <li>Reservation for a restaurant, attraction, or experience</li>
@@ -424,6 +453,7 @@
         <li>Reply within 24h</li>
       </ul>
       <div class="plan-guard">✓ Full refund if we can't book it</div>
+      <a href="https://buy.stripe.com/8x23cu45zgLbdLA8necV203" class="plan-btn">BOOK STANDARD →</a>
     </div>
 
     <!-- PLUS -->
@@ -432,7 +462,6 @@
       <div class="plan-name">PLUS</div>
       <div class="plan-tagline">Reservations, plus a local's map.</div>
       <div class="price-amount"><span class="cur">$</span>25</div>
-      <div class="price-yen">approx. ¥3,500</div>
       <div class="plan-eta">⏱ About 2 days</div>
       <ul class="price-features">
         <li>Everything in Standard</li>
@@ -441,14 +470,15 @@
         <li>Reply within 24h</li>
       </ul>
       <div class="plan-guard">✓ Full refund if we can't book it</div>
+      <a href="https://buy.stripe.com/dRm9AS31vfH7azogTKcV202" class="plan-btn">BOOK PLUS →</a>
     </div>
 
     <!-- PREMIUM -->
-    <div class="price-card">
+    <div class="price-card premium">
+      <div class="price-badge gold">Best Value</div>
       <div class="plan-name">PREMIUM</div>
       <div class="plan-tagline">Your personal concierge for the whole trip.</div>
       <div class="price-amount"><span class="cur">$</span>50</div>
-      <div class="price-yen">approx. ¥7,000</div>
       <div class="plan-eta">⏱ About 3 days</div>
       <ul class="price-features">
         <li>Everything in Plus</li>
@@ -459,29 +489,25 @@
         <li>WhatsApp / LINE available on request</li>
       </ul>
       <div class="plan-guard">✓ Full refund if we can't book it</div>
-      <p style="font-size:0.72rem; color:var(--muted); margin-top:14px; line-height:1.6;">* Trains & hotels: we guide you through the best options and how to book — you complete the booking yourself.</p>
+      <a href="https://buy.stripe.com/eVqaEW7hLeD3ePEfPGcV204" class="plan-btn">BOOK PREMIUM →</a>
+      <p style="font-size:0.72rem; color:rgba(255,255,255,0.45); margin-top:14px; line-height:1.6;">* Trains & hotels: we guide you through the best options and how to book — you complete the booking yourself.</p>
     </div>
 
   </div>
 </section>
 
-<!-- BOOKING -->
+<!-- BOOKING CTA -->
 <section class="booking" id="booking">
-  <div class="sec-head"><div class="sec-jp">ご予約</div><div class="sec-title">MAKE A RESERVATION</div><p class="sec-desc" style="color:var(--muted)">We'll reply within 24 hours via DM.</p></div>
-  <div class="booking-form">
-    <input type="text" id="f-name" placeholder="Your Name" required />
-    <input type="email" id="f-email" placeholder="Email Address" required />
-    <input type="text" id="f-instagram" placeholder="Instagram / SNS Handle (so we can DM you)" />
-    <input type="text" id="f-destination" placeholder="Where do you want to go?" required />
-    <input type="text" id="f-date" placeholder="Preferred date (e.g. June 20, or 'Late June')" required />
-    <select id="f-guests">
-      <option value="">Number of Guests</option>
-      <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
-    </select>
-    <textarea id="f-requests" placeholder="Any special requests? (dietary restrictions, occasion, etc.)"></textarea>
-    <button type="button" class="booking-submit" id="submitBtn" onclick="submitBooking()">Reserve & Pay ¥2,000 →</button>
-    <p class="booking-note" id="bookingNote">💳 Secure payment via Stripe. Full refund if we can't secure your reservation.</p>
+  <div class="sec-head"><div class="sec-jp">ご予約はかんたん</div><div class="sec-title">READY TO BOOK?</div><p class="sec-desc" style="color:var(--muted)">Choose your plan, pay securely, and tell us the details. We'll handle the rest.</p></div>
+  <div class="booking-steps">
+    <div class="bstep"><div class="bstep-num">1</div><div class="bstep-label">Pick a plan</div><div class="bstep-desc">Standard, Plus, or Premium</div></div>
+    <div class="bstep-arrow">→</div>
+    <div class="bstep"><div class="bstep-num">2</div><div class="bstep-label">Pay securely</div><div class="bstep-desc">USD / EUR / JPY via Stripe</div></div>
+    <div class="bstep-arrow">→</div>
+    <div class="bstep"><div class="bstep-num">3</div><div class="bstep-label">Tell us details</div><div class="bstep-desc">Fill the quick form after payment</div></div>
   </div>
+  <a href="#price" class="booking-cta">Choose Your Plan →</a>
+  <p class="booking-note" style="margin-top:20px;">💳 Secure payment via Stripe · Full refund if we can't book it</p>
 </section>
 
 <!-- FAQ -->
@@ -549,62 +575,11 @@
 
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="stickyCta">
-  <div class="sticky-text">Ready to explore Tokyo? <strong>¥2,000</strong> · Full refund guarantee</div>
+  <div class="sticky-text">Ready to explore Japan? <strong>From $15</strong> · Full refund guarantee</div>
   <a href="#booking" class="sticky-btn">Book Now →</a>
 </div>
 
 <script>
-  // Booking form submit → Google Sheets → Stripe
-  const GAS_URL = "https://script.google.com/macros/s/AKfycbw0ckQKWCsludHQR9T9hOFCTomou4lDYR2Jf28OQHJC3OGCaGUPKgKD6i-XCf0-M1d-MQ/exec";
-  const STRIPE_URL = "https://buy.stripe.com/fZu4gygSl8eF6j81YQcV200";
-
-  function submitBooking() {
-    const name = document.getElementById('f-name').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const destination = document.getElementById('f-destination').value.trim();
-    const date = document.getElementById('f-date').value;
-    const note = document.getElementById('bookingNote');
-    const btn = document.getElementById('submitBtn');
-
-    // 必須チェック
-    if (!name || !email || !destination || !date) {
-      note.textContent = "⚠️ Please fill in your name, email, destination, and date.";
-      note.style.color = "#E60023";
-      return;
-    }
-
-    const data = {
-      name: name,
-      email: email,
-      instagram: document.getElementById('f-instagram').value.trim(),
-      destination: destination,
-      date: date,
-      guests: document.getElementById('f-guests').value,
-      requests: document.getElementById('f-requests').value.trim()
-    };
-
-    btn.textContent = "Processing...";
-    btn.style.opacity = "0.6";
-    note.textContent = "Saving your request...";
-    note.style.color = "";
-
-    fetch(GAS_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    })
-    .then(() => {
-      note.textContent = "✓ Request received! Please use the SAME NAME on the next payment page. Redirecting...";
-      btn.textContent = "Redirecting...";
-      setTimeout(() => { window.location.href = STRIPE_URL; }, 1200);
-    })
-    .catch(() => {
-      // no-corsなので基本ここには来ないが念のため
-      note.textContent = "✓ Redirecting to payment...";
-      setTimeout(() => { window.location.href = STRIPE_URL; }, 1200);
-    });
-  }
   // Scroll reveal for Why section
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
