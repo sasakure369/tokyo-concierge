@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Booking Details – Japan Concierge</title>
+  <title>Booking Details – OMOTENASHI DESK</title>
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,14 +55,20 @@
     .done p { color: rgba(255,255,255,0.65); font-size: 0.95rem; max-width: 420px; margin: 0 auto 28px; }
     .done a { display: inline-block; color: var(--vermilion); text-decoration: none; border: 1px solid var(--vermilion); padding: 12px 28px; border-radius: 2px; font-size: 0.85rem; letter-spacing: 1px; transition: all 0.2s; }
     .done a:hover { background: var(--vermilion); color: #fff; }
+    .next-steps { max-width: 420px; margin: 0 auto 32px; text-align: left; }
+    .next-step { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .next-step:last-child { border-bottom: none; }
+    .ns-num { width: 28px; height: 28px; line-height: 28px; text-align: center; border-radius: 50%; background: rgba(212,175,55,0.2); color: var(--gold); font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; flex-shrink: 0; }
+    .ns-text { font-size: 0.88rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .ns-text strong { color: #fff; }
 
     .formbox.hidden { display: none; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="logo">JAPAN CONCIERGE</div>
-    <div class="logo-jp">ジャパンコンシェルジュ</div>
+    <div class="logo">OMOTENASHI DESK</div>
+    <div class="logo-jp">おもてなしデスク</div>
 
     <div class="formbox" id="formBox">
       <div class="thanks">
@@ -113,7 +119,13 @@
     <div class="done" id="doneBox">
       <div class="done-check">✓</div>
       <h2>ALL SET!</h2>
-      <p>We've received your details and will reach out via DM within 24 hours to confirm your reservation. We can't wait to help you explore Japan!</p>
+      <p>We've received your details. Here's what happens next:</p>
+      <div class="next-steps">
+        <div class="next-step"><div class="ns-num">1</div><div class="ns-text"><strong>We confirm your booking.</strong> We'll contact the venue and secure your reservation.</div></div>
+        <div class="next-step"><div class="ns-num">2</div><div class="ns-text"><strong>You'll get an email</strong> from us within 24 hours with your confirmation or the best alternatives.</div></div>
+        <div class="next-step"><div class="ns-num">3</div><div class="ns-text"><strong>Need to chat?</strong> Premium members can reach us anytime on Instagram DM. Standard &amp; Plus are supported by email.</div></div>
+      </div>
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.5);">Some venues require a deposit — if so, we'll send a secure payment link by email.</p>
       <a href="https://www.instagram.com/unlock_tokyo/" target="_blank">Follow us on Instagram →</a>
     </div>
   </div>
