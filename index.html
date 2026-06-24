@@ -4,27 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OMOTENASHI DESK – Unlock Japan, We Handle the Rest</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Shippori+Mincho:wght@500;700;800&family=Shippori+Antique+B1&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --vermilion: #E60023;
       --vermilion-deep: #B3001B;
-      --black: #0B0B0C;
-      --ink: #16161A;
+      --cream: #FFFDF5;
+      --cream-soft: #FFF5E8;
+      --cream-warm: #FDEBD0;
+      --red-dark: #8B0015;
+      --red-mid: #A3001C;
+      --text-dark: #2A0A0A;
       --white: #FFFFFF;
-      --off: #FAF8F5;
-      --line: #E8E4DE;
-      --muted: #9A9AA0;
-      --muted-d: #6B6B72;
+      --line: #F0DDD0;
+      --muted: #C4A090;
+      --muted-d: #7A5A5A;
+      --gold: #D4AF37;
+      /* 後方互換エイリアス */
+      --black: var(--text-dark);
+      --ink: var(--red-dark);
+      --off: var(--cream-soft);
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(11,11,12,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: rgba(139,0,21,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.12); }
     .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 3px; color: var(--white); display: flex; align-items: center; gap: 10px; }
-    .nav-logo::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--vermilion); }
+    .nav-logo-img { height: 34px; width: auto; border-radius: 50%; }
+    .nav-logo::before { display: none; }
     .nav-links { display: flex; gap: 30px; list-style: none; }
     .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.76rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--vermilion); }
@@ -37,7 +46,7 @@
     .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.8s ease-in-out; }
     .hero-slide.active { opacity: 1; animation: kenburns 6s ease-out forwards; }
     @keyframes kenburns { from { transform: scale(1.05); } to { transform: scale(1.15); } }
-    .hero-slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(11,11,12,0.9) 0%, rgba(11,11,12,0.55) 55%, rgba(11,11,12,0.35) 100%); }
+    .hero-slide::after { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(100,0,15,0.88) 0%, rgba(60,0,10,0.52) 55%, rgba(30,0,5,0.30) 100%); }
     .slide-1 { background-image: url('https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=1400&q=80'); }
     .slide-2 { background-image: url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=1400&q=80'); }
     .slide-3 { background-image: url('https://images.unsplash.com/photo-1554797589-7241bb691973?w=1400&q=80'); }
@@ -55,13 +64,13 @@
     .hero-jp { font-family: 'Shippori Mincho', serif; color: var(--vermilion); font-size: 0.95rem; letter-spacing: 8px; margin-bottom: 20px; }
     .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 11vw, 150px); line-height: 0.9; letter-spacing: 2px; margin-bottom: 22px; }
     .hero h1 span { color: var(--vermilion); display: block; }
-    .hero-sub { font-size: clamp(0.95rem, 2vw, 1.1rem); color: rgba(255,255,255,0.8); max-width: 460px; line-height: 1.8; margin-bottom: 28px; font-weight: 300; }
+    .hero-sub { font-family: 'Shippori Antique B1', serif; font-size: clamp(0.95rem, 2vw, 1.1rem); color: rgba(255,255,255,0.85); max-width: 480px; line-height: 1.9; margin-bottom: 28px; }
     .hero-trust { display: flex; gap: 28px; margin-bottom: 36px; flex-wrap: wrap; }
     .trust-item { display: flex; flex-direction: column; }
     .trust-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--white); line-height: 1; }
     .trust-num span { color: var(--vermilion); }
     .trust-label { font-size: 0.7rem; color: rgba(255,255,255,0.6); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
-    .hero-tagline { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.4rem, 3vw, 2.2rem); color: var(--white); letter-spacing: 3px; margin-bottom: 18px; opacity: 0.85; }
+    .hero-tagline { font-family: 'Shippori Antique B1', serif; font-size: clamp(1.2rem, 2.5vw, 1.8rem); color: var(--white); letter-spacing: 2px; margin-bottom: 18px; opacity: 0.9; }
     .hero-cta { display: inline-flex; align-items: center; gap: 12px; background: var(--vermilion); color: var(--white); font-weight: 600; font-size: 0.9rem; letter-spacing: 1.5px; text-transform: uppercase; padding: 18px 44px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
     .hero-cta:hover { background: var(--vermilion-deep); transform: translateY(-2px); }
     .hero-vertical { position: absolute; right: 44px; top: 50%; transform: translateY(-50%); z-index: 2; writing-mode: vertical-rl; font-family: 'Shippori Mincho', serif; font-size: 1.05rem; letter-spacing: 10px; color: rgba(255,255,255,0.45); }
@@ -70,7 +79,7 @@
     .sec-head { text-align: center; margin-bottom: 52px; }
     .sec-jp { font-family: 'Shippori Mincho', serif; color: var(--vermilion); font-size: 0.9rem; letter-spacing: 6px; margin-bottom: 12px; }
     .sec-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 6.5vw, 84px); letter-spacing: 2px; line-height: 1; }
-    .sec-desc { color: var(--muted-d); margin-top: 16px; font-size: 0.95rem; }
+    .sec-desc { font-family: 'Shippori Antique B1', serif; color: var(--muted-d); margin-top: 16px; font-size: 1rem; line-height: 1.8; }
 
     /* SPOTS — white base now */
     .spots { padding: 88px 40px; background: var(--off); position: relative; }
@@ -119,18 +128,18 @@
     .more-btn { background: transparent; border: 1px solid var(--black); color: var(--black); padding: 14px 40px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; font-weight: 500; }
     .more-btn:hover { background: var(--black); color: var(--white); }
 
-    /* HOW — black */
-    .how { background: var(--black); color: var(--white); padding: 88px 40px; }
-    .how .sec-title { color: var(--white); }
+    /* HOW — 白 */
+    .how { background: var(--white); color: var(--text-dark); padding: 88px 40px; }
+    .how .sec-title { color: var(--text-dark); }
     .steps { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; max-width: 1000px; margin: 0 auto; }
-    .step { background: var(--ink); border-radius: 2px; padding: 44px 32px; flex: 1; min-width: 240px; max-width: 300px; text-align: left; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+    .step { background: var(--white); border-radius: 4px; padding: 44px 32px; flex: 1; min-width: 240px; max-width: 300px; text-align: left; position: relative; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 4px 24px rgba(139,0,21,0.07); }
     .step::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--vermilion); }
     .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.6rem; color: var(--vermilion); line-height: 1; margin-bottom: 16px; }
-    .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; }
-    .step p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; color: var(--text-dark); }
+    .step p { font-size: 0.9rem; color: var(--muted-d); line-height: 1.8; }
 
-    /* PRICE — white */
-    .price { padding: 88px 40px; text-align: center; background: var(--white); }
+    /* PRICE — クリーム */
+    .price { padding: 88px 40px; text-align: center; background: var(--cream); }
     .price .sec-title { color: var(--black); }
     .price-cards { display: flex; gap: 20px; justify-content: center; align-items: stretch; flex-wrap: wrap; max-width: 1080px; margin: 0 auto; }
     .price-card { position: relative; flex: 1; min-width: 280px; max-width: 340px; border: 1px solid var(--line); border-top: 3px solid var(--muted); padding: 40px 30px; text-align: left; background: var(--off); box-shadow: 0 10px 40px rgba(0,0,0,0.06); display: flex; flex-direction: column; overflow: hidden; transition: transform 0.35s ease, box-shadow 0.35s ease; }
@@ -149,9 +158,9 @@
     .price-card.featured::before { content: '✦'; position: absolute; top: 14px; right: 18px; font-size: 1.3rem; color: rgba(230,0,35,0.35); }
     .price-card.featured::after { content: '✦'; position: absolute; bottom: 100px; left: 18px; font-size: 0.85rem; color: rgba(230,0,35,0.25); }
 
-    /* PREMIUM — 黒×ゴールド、王冠演出 */
-    .price-card.premium { border: 1px solid #2a2a2a; border-top: 3px solid #d4af37; background: linear-gradient(180deg, #1c1c1c 0%, #0d0d0d 100%); box-shadow: 0 18px 60px rgba(0,0,0,0.3); }
-    .price-card.premium:hover { box-shadow: 0 26px 70px rgba(212,175,55,0.18); }
+    /* PREMIUM — 深紅×ゴールド、王冠演出 */
+    .price-card.premium { border: 1px solid #6A0010; border-top: 3px solid #d4af37; background: linear-gradient(180deg, #6A0010 0%, #4A0008 100%); box-shadow: 0 18px 60px rgba(100,0,20,0.35); }
+    .price-card.premium:hover { box-shadow: 0 26px 70px rgba(212,175,55,0.22); }
     .price-card.premium::before { content: '👑'; position: absolute; top: 16px; right: 20px; font-size: 1.4rem; opacity: 0.65; filter: drop-shadow(0 0 6px rgba(212,175,55,0.5)); }
     .price-card.premium .plan-name,
     .price-card.premium .price-amount { color: #fff; }
@@ -165,7 +174,7 @@
     .price-badge.gold { background: linear-gradient(135deg, #d4af37, #b8902a); color: #1a1a1a; box-shadow: 0 4px 14px rgba(212,175,55,0.4); }
     .price-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--vermilion); color: var(--white); font-size: 0.66rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 2px; white-space: nowrap; z-index: 2; }
     .plan-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: var(--black); margin-bottom: 4px; position: relative; z-index: 1; }
-    .plan-tagline { font-size: 0.82rem; color: var(--muted-d); margin-bottom: 22px; min-height: 36px; position: relative; z-index: 1; font-style: italic; }
+    .plan-tagline { font-family: 'Shippori Antique B1', serif; font-size: 0.9rem; color: var(--muted-d); margin-bottom: 22px; min-height: 36px; position: relative; z-index: 1; line-height: 1.7; }
     .price-amount { font-family: 'Bebas Neue', sans-serif; font-size: 3.8rem; line-height: 1; letter-spacing: 1px; color: var(--black); position: relative; z-index: 1; }
     .price-amount .cur { font-size: 1.4rem; vertical-align: top; margin-top: 8px; display: inline-block; color: var(--vermilion); }
     .price-card.premium .price-amount { font-size: 4.3rem; text-shadow: 0 0 24px rgba(212,175,55,0.25); }
@@ -188,19 +197,19 @@
     .currency-note .cn-icon { font-size: 1.1rem; }
     .currency-note strong { color: var(--vermilion-deep); font-weight: 700; letter-spacing: 0.5px; }
 
-    /* BOOKING — black */
-    .booking { background: var(--black); color: var(--white); padding: 88px 40px; text-align: center; }
-    .booking .sec-title { color: var(--white); }
+    /* BOOKING — 白 */
+    .booking { background: var(--white); color: var(--text-dark); padding: 88px 40px; text-align: center; }
+    .booking .sec-title { color: var(--text-dark); }
     .booking-steps { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 820px; margin: 0 auto 44px; }
-    .bstep { flex: 1; min-width: 180px; background: var(--ink); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 28px 20px; }
+    .bstep { flex: 1; min-width: 180px; background: var(--cream-soft); border: 1px solid var(--line); border-radius: 4px; padding: 28px 20px; }
     .bstep-num { width: 36px; height: 36px; line-height: 36px; border-radius: 50%; background: var(--vermilion); color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; margin: 0 auto 14px; }
-    .bstep-label { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
-    .bstep-desc { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+    .bstep-label { font-weight: 700; font-size: 1rem; margin-bottom: 6px; color: var(--text-dark); }
+    .bstep-desc { font-size: 0.82rem; color: var(--muted-d); line-height: 1.5; }
     .bstep-arrow { color: var(--vermilion); font-size: 1.4rem; font-weight: 700; }
     .booking-cta { display: inline-block; background: var(--vermilion); color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 2px; padding: 18px 48px; border-radius: 2px; text-decoration: none; transition: background 0.25s, transform 0.25s; }
     .booking-cta:hover { background: var(--vermilion-deep); transform: translateY(-2px); }
     .booking-form { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-    .booking-form input, .booking-form select, .booking-form textarea { width: 100%; padding: 16px 20px; border: 1px solid rgba(255,255,255,0.15); border-radius: 2px; font-size: 0.95rem; font-family: 'Inter', sans-serif; background: var(--ink); outline: none; transition: border-color 0.2s; color: var(--white); }
+    .booking-form input, .booking-form select, .booking-form textarea { width: 100%; padding: 16px 20px; border: 1px solid var(--line); border-radius: 2px; font-size: 0.95rem; font-family: 'Inter', sans-serif; background: var(--cream-soft); outline: none; transition: border-color 0.2s; color: var(--text-dark); }
     .booking-form input::placeholder, .booking-form textarea::placeholder { color: var(--muted); }
     .booking-form input:focus, .booking-form select:focus, .booking-form textarea:focus { border-color: var(--vermilion); }
     .booking-form textarea { resize: vertical; min-height: 110px; }
@@ -208,8 +217,8 @@
     .booking-submit:hover { background: var(--vermilion-deep); transform: translateY(-2px); }
     .booking-note { margin-top: 16px; font-size: 0.8rem; color: var(--muted); }
 
-    /* FAQ — white */
-    .faq-wrap { background: var(--off); padding: 88px 40px; }
+    /* FAQ — 温かみクリーム */
+    .faq-wrap { background: var(--cream-warm); padding: 88px 40px; }
     .faq { max-width: 720px; margin: 0 auto; }
     .faq-item { border-bottom: 1px solid var(--line); padding: 24px 0; }
     .faq-q { font-weight: 500; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--black); }
@@ -219,14 +228,14 @@
     .faq-a.open { display: block; }
 
     /* WHY / STORY */
-    .why { background: var(--off); color: var(--black); padding: 88px 40px; position: relative; overflow: hidden; }
+    .why { background: var(--cream-soft); color: var(--text-dark); padding: 88px 40px; position: relative; overflow: hidden; }
     .why::before { content: '想'; position: absolute; top: 40px; right: 6%; font-family: 'Shippori Mincho', serif; font-size: 16rem; color: rgba(230,0,35,0.04); line-height: 1; pointer-events: none; user-select: none; }
     .why-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
     .why .sec-jp { text-align: center; }
     .why .sec-title { text-align: center; color: var(--black); }
-    .why-lead { text-align: center; font-size: 1.3rem; line-height: 1.9; color: var(--black); margin: 8px 0 56px; font-weight: 500; }
+    .why-lead { font-family: 'Shippori Antique B1', serif; text-align: center; font-size: 1.2rem; line-height: 2; color: var(--text-dark); margin: 8px 0 56px; }
     .why-lead strong { color: var(--vermilion); }
-    .why-story { font-size: 1rem; line-height: 2; color: #333; }
+    .why-story { font-family: 'Shippori Antique B1', serif; font-size: 1rem; line-height: 2.1; color: var(--text-dark); }
     /* scroll reveal */
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .reveal.in { opacity: 1; transform: translateY(0); }
@@ -240,26 +249,37 @@
     .why-quote::before { content: '“'; font-size: 5rem; color: rgba(230,0,35,0.15); position: absolute; top: -30px; left: 50%; transform: translateX(-50%); font-family: 'Shippori Mincho', serif; }
     .why-quote .q-sub { display: block; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--muted-d); margin-top: 16px; letter-spacing: 1px; }
     /* closing */
-    .why-closing { text-align: center; font-size: 1.15rem; line-height: 1.9; color: var(--black); margin: 48px 0 32px; font-weight: 500; }
+    .why-closing { font-family: 'Shippori Antique B1', serif; text-align: center; font-size: 1.1rem; line-height: 2; color: var(--text-dark); margin: 48px 0 32px; }
     .why-closing strong { color: var(--vermilion); }
     .why-sign { text-align: center; margin-top: 32px; font-family: 'Shippori Mincho', serif; font-size: 1rem; color: var(--muted-d); }
     .why-sign strong { color: var(--black); }
 
     /* FOOTER */
-    footer { text-align: center; padding: 56px 24px; font-size: 0.8rem; background: var(--black); color: var(--white); }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 3px; margin-bottom: 8px; display: inline-flex; align-items: center; gap: 10px; }
-    .footer-logo::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--vermilion); }
+    footer { text-align: center; padding: 56px 24px; font-size: 0.8rem; background: var(--red-dark); color: var(--white); }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 3px; margin-bottom: 8px; display: inline-flex; align-items: center; gap: 12px; }
+    .footer-logo-img { height: 48px; width: auto; border-radius: 50%; }
+    .footer-logo::before { display: none; }
     .footer-jp { font-family: 'Shippori Mincho', serif; color: var(--muted); letter-spacing: 4px; margin-bottom: 20px; font-size: 0.8rem; }
     footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--vermilion); }
 
     /* STICKY CTA */
-    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: rgba(11,11,12,0.95); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.1); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; transform: translateY(100%); transition: transform 0.35s ease; }
+    .sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; background: rgba(139,0,21,0.97); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.15); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; transform: translateY(100%); transition: transform 0.35s ease; }
     .sticky-cta.show { transform: translateY(0); }
     .sticky-text { color: var(--white); font-size: 0.82rem; }
     .sticky-text strong { color: var(--vermilion); }
     .sticky-btn { background: var(--vermilion); color: var(--white); text-decoration: none; padding: 13px 28px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; transition: background 0.2s; }
     .sticky-btn:hover { background: var(--vermilion-deep); }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .anim-up { opacity: 0; transform: translateY(36px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .anim-up.visible { opacity: 1; transform: translateY(0); }
+    .anim-left { opacity: 0; transform: translateX(-28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .anim-left.visible { opacity: 1; transform: translateX(0); }
+    .anim-up.d1 { transition-delay: 0.1s; }
+    .anim-up.d2 { transition-delay: 0.2s; }
+    .anim-up.d3 { transition-delay: 0.3s; }
+    .anim-up.d4 { transition-delay: 0.4s; }
 
     @media (max-width: 980px) {
       .spots-grid { grid-template-columns: repeat(2, 1fr); }
@@ -288,7 +308,7 @@
 <body>
 
 <nav>
-  <div class="nav-logo">OMOTENASHI DESK</div>
+  <div class="nav-logo"><img src="images/logo.jpg" alt="" class="nav-logo-img">OMOTENASHI DESK</div>
   <ul class="nav-links">
     <li><a href="#spots">Spots</a></li>
     <li><a href="#how">How</a></li>
@@ -331,16 +351,16 @@
 
 <!-- SPOTS -->
 <section class="spots" id="spots">
-  <div class="sec-head">
+  <div class="sec-head anim-up">
     <div class="sec-jp">予約できるもの</div>
     <div class="sec-title">WHAT WE CAN BOOK</div>
     <p class="sec-desc">From impossible-to-book sushi to Suntory distilleries and theme parks — if it's in Japan, we'll try to get you in.</p>
   </div>
 
   <!-- ニッチスポット訴求 -->
-  <div class="niche-box">
+  <div class="niche-box anim-up">
     <span class="niche-icon">⛩</span>
-    <p>The spots listed here are just examples. We don't only book famous places — if you want something deeper, tell us your destination and the kind of experience you're after. We'll find the kind of place only locals know, and book it for you.</p>
+    <p>Tired of the same tourist spots everyone else visits? Tell us what you're after — we'll dig up the places only locals know and get you in.</p>
   </div>
 
   <!-- バッジ凡例 -->
@@ -526,17 +546,17 @@
 
 <!-- HOW -->
 <section class="how" id="how">
-  <div class="sec-head"><div class="sec-jp">ご利用の流れ</div><div class="sec-title">HOW IT WORKS</div></div>
+  <div class="sec-head anim-up"><div class="sec-jp">ご利用の流れ</div><div class="sec-title">HOW IT WORKS</div></div>
   <div class="steps">
-    <div class="step"><div class="step-num">01</div><h3>Tell Us Your Vision</h3><p>Share where you're headed and what kind of experience you're after — famous or hidden, food or adventure. Any request is welcome.</p></div>
-    <div class="step"><div class="step-num">02</div><h3>We Handle It</h3><p>We contact venues in Japanese, secure your reservation, and help plan the details around it — so everything fits together.</p></div>
-    <div class="step"><div class="step-num">03</div><h3>You Just Show Up</h3><p>Receive confirmation by email and enjoy your Japan experience. It's that simple.</p></div>
+    <div class="step anim-up"><div class="step-num">01</div><h3>Tell Us Your Vision</h3><p>Share where you're headed and what kind of experience you're after — famous or hidden, food or adventure. Any request is welcome.</p></div>
+    <div class="step anim-up d1"><div class="step-num">02</div><h3>We Handle It</h3><p>We contact venues in Japanese, secure your reservation, and help plan the details around it — so everything fits together.</p></div>
+    <div class="step anim-up d2"><div class="step-num">03</div><h3>You Just Show Up</h3><p>Receive confirmation by email and enjoy your Japan experience. It's that simple.</p></div>
   </div>
 </section>
 
 <!-- PRICE -->
 <section class="price" id="price">
-  <div class="sec-head"><div class="sec-jp">料金プラン</div><div class="sec-title">CHOOSE YOUR PLAN</div><p class="sec-desc">Simple, honest pricing. Start with Standard, or go Premium for the full concierge experience.</p></div>
+  <div class="sec-head anim-up"><div class="sec-jp">料金プラン</div><div class="sec-title">CHOOSE YOUR PLAN</div><p class="sec-desc">Simple, honest pricing. Start with Standard, or go Premium for the full concierge experience.</p></div>
 
   <div class="currency-note">
     <span class="cn-icon">💳</span>
@@ -546,38 +566,38 @@
   <div class="price-cards">
 
     <!-- STANDARD -->
-    <div class="price-card featured">
+    <div class="price-card featured anim-up">
       <div class="price-badge">Most Popular</div>
       <div class="plan-name">STANDARD</div>
-      <div class="plan-tagline">Book that one place you can't miss — plus local tips to make the most of it.</div>
+      <div class="plan-tagline">We plan your day — you just show up and enjoy.</div>
       <div class="price-amount"><span class="cur">$</span>25</div>
       <div class="plan-eta">⏱ Same day – 2 days</div>
       <ul class="price-features">
-        <li>Reservation for a restaurant, attraction, or experience</li>
-        <li>We contact the venue in Japanese for you</li>
-        <li><strong>Basic Japan Guide</strong> — essential tips &amp; overview map (sent to all)</li>
-        <li><strong>Personalized Area Map</strong> — our picks near your reservation</li>
+        <li>Reservation support (where bookable)</li>
+        <li>Booking form submission on your behalf</li>
+        <li><strong>1-day tour itinerary</strong> — we plan your full day around the booking</li>
+        <li><strong>Handmade area map</strong> — simple local guide for 1 day</li>
+        <li>Chat support during tour planning only</li>
         <li>Alternative suggestions if fully booked</li>
-        <li>Confirmation &amp; updates via email</li>
-        <li>Reply within 24h</li>
+        <li>Email confirmation</li>
       </ul>
       <div class="plan-guard">✓ Full refund if we can't book it</div>
       <a href="https://buy.stripe.com/dRm9AS31vfH7azogTKcV202" class="plan-btn">BOOK STANDARD →</a>
     </div>
 
     <!-- PREMIUM -->
-    <div class="price-card premium">
+    <div class="price-card premium anim-up d1">
       <div class="price-badge gold">Full Concierge</div>
       <div class="plan-name">PREMIUM</div>
-      <div class="plan-tagline">Your personal team for the whole trip — from planning to the last night.</div>
+      <div class="plan-tagline">Up to 3 days fully planned — your personal team on the ground.</div>
       <div class="price-amount"><span class="cur">from $</span>60</div>
       <div class="plan-eta">⏱ Price varies by scope</div>
       <ul class="price-features">
         <li>Everything in Standard</li>
-        <li class="highlight"><strong>Custom Itinerary Map</strong> — individually created for your stay, with routes between all bookings</li>
-        <li class="highlight"><strong>Trip planning support</strong> — we work with you over 2–3 days to build your itinerary</li>
-        <li class="highlight"><strong>Niche spot research</strong> — we hunt down places only locals know and get you in</li>
+        <li class="highlight"><strong>Up to 3-day tour itinerary</strong> — full multi-day trip planning</li>
+        <li class="highlight"><strong>Handmade area maps × up to 3 days</strong> — covering all your bookings</li>
         <li class="highlight"><strong>Unlimited chat</strong> during your stay (Instagram DM / WhatsApp / LINE)</li>
+        <li style="font-size:0.8rem; color:rgba(255,255,255,0.55);">* Response time may vary</li>
       </ul>
       <div class="plan-guard">✓ Full refund if we can't book it</div>
       <a href="https://buy.stripe.com/eVqaEW7hLeD3ePEfPGcV204" class="plan-btn">BOOK PREMIUM →</a>
@@ -609,7 +629,7 @@
     <div class="sec-title">WHY WE DO THIS</div>
     <p class="why-lead reveal">We believe everyone who comes to Japan deserves <strong>more than the tourist version</strong> of it.</p>
 
-    <div class="why-chapter reveal">
+    <div class="why-chapter reveal anim-left">
       <div class="why-num">01</div>
       <div class="why-text">
         <p>OMOTENASHI DESK started behind a <strong>cocktail bar in Ginza</strong>.</p>
@@ -617,7 +637,7 @@
       </div>
     </div>
 
-    <div class="why-chapter reveal">
+    <div class="why-chapter reveal anim-left d1">
       <div class="why-num">02</div>
       <div class="why-text">
         <p>The best spots in Japan often take reservations <strong>by phone only, in Japanese</strong>. Many places barely show up online in English.</p>
@@ -625,12 +645,12 @@
       </div>
     </div>
 
-    <div class="why-quote reveal">
+    <div class="why-quote reveal anim-up">
       Isn't there somewhere only locals know about? Somewhere we could actually get into?
       <span class="q-sub">— what travelers asked Akira, night after night</span>
     </div>
 
-    <div class="why-chapter reveal">
+    <div class="why-chapter reveal anim-left d2">
       <div class="why-num">03</div>
       <div class="why-text">
         <p>We've felt it from the other side too. Traveling abroad, we always wished we had <strong>a local friend</strong> we could just ask — someone to handle the bookings, navigate the language, and take care of all the little things that stand between you and a great trip.</p>
@@ -645,7 +665,7 @@
 
 <!-- FAQ -->
 <section class="faq-wrap" id="faq">
-  <div class="sec-head"><div class="sec-jp">よくある質問</div><div class="sec-title" style="color:var(--black)">FAQ</div></div>
+  <div class="sec-head anim-up"><div class="sec-jp">よくある質問</div><div class="sec-title" style="color:var(--text-dark)">FAQ</div></div>
   <div class="faq">
     <div class="faq-item"><div class="faq-q">How does the whole process work?</div><div class="faq-a">Simple: (1) choose a plan — Standard or Premium — and pay securely via Stripe, (2) fill in your details on the form right after payment, (3) we confirm your booking and reach out by <strong>email</strong>. Premium members also get ongoing <strong>chat support</strong> via Instagram DM, WhatsApp, or LINE throughout their stay. Most confirmations arrive within 24 hours.</div></div>
     <div class="faq-item"><div class="faq-q">What's included in Premium, and why is the price variable?</div><div class="faq-a">Premium includes everything in Standard, plus a custom itinerary map tailored to your stay, trip-planning support (we work with you over a few days to build your full schedule), niche spot research, and unlimited chat during your trip. The price starts at <strong>$60</strong> and varies depending on the number of reservations and the length of your stay — we'll confirm the final price after reviewing your request before any additional charge.</div></div>
@@ -661,7 +681,7 @@
 </section>
 
 <footer>
-  <div class="footer-logo">OMOTENASHI DESK</div>
+  <div class="footer-logo"><img src="images/logo.jpg" alt="" class="footer-logo-img">OMOTENASHI DESK</div>
   <div class="footer-jp">あなたの日本を、解き放つ</div>
   <p><a href="legal.html#privacy">Privacy Policy</a> · <a href="legal.html#terms">Terms of Service</a> · <a href="legal.html#refund">Refund Policy</a></p>
   <p style="margin-top:16px; color:var(--muted)">© 2026 OMOTENASHI DESK. All rights reserved.</p>
@@ -674,17 +694,19 @@
 </div>
 
 <script>
-  // Scroll reveal for Why section
-  const revealEls = document.querySelectorAll('.reveal');
+  // Scroll animations (reveal + anim-up + anim-left)
   if ('IntersectionObserver' in window) {
-    const obs = new IntersectionObserver((entries) => {
+    const animObs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+        if (e.isIntersecting) {
+          e.target.classList.add('in', 'visible');
+          animObs.unobserve(e.target);
+        }
       });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => obs.observe(el));
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .anim-up, .anim-left').forEach(el => animObs.observe(el));
   } else {
-    revealEls.forEach(el => el.classList.add('in'));
+    document.querySelectorAll('.reveal, .anim-up, .anim-left').forEach(el => el.classList.add('in', 'visible'));
   }
 
   // Hero slideshow
