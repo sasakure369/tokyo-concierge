@@ -138,8 +138,8 @@
     .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; color: var(--text-dark); }
     .step p { font-size: 0.9rem; color: var(--muted-d); line-height: 1.8; }
 
-    /* PRICE — クリーム */
-    .price { padding: 88px 40px; text-align: center; background: var(--cream); }
+    /* PRICE — クリーム＋青海波 */
+    .price { padding: 88px 40px; text-align: center; background: var(--cream); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28'%3E%3Cpath d='M0,28 A28,28 0 0,0 56,28' fill='none' stroke='rgba(230,0,35,0.06)' stroke-width='1.5'/%3E%3Cpath d='M-28,14 A28,28 0 0,0 28,14' fill='none' stroke='rgba(230,0,35,0.06)' stroke-width='1.5'/%3E%3Cpath d='M28,14 A28,28 0 0,0 84,14' fill='none' stroke='rgba(230,0,35,0.06)' stroke-width='1.5'/%3E%3C/svg%3E"); background-size: 56px 28px; }
     .price .sec-title { color: var(--black); }
     .price-cards { display: flex; gap: 20px; justify-content: center; align-items: stretch; flex-wrap: wrap; max-width: 1080px; margin: 0 auto; }
     .price-card { position: relative; flex: 1; min-width: 280px; max-width: 340px; border: 1px solid var(--line); border-top: 3px solid var(--muted); padding: 40px 30px; text-align: left; background: var(--off); box-shadow: 0 10px 40px rgba(0,0,0,0.06); display: flex; flex-direction: column; overflow: hidden; transition: transform 0.35s ease, box-shadow 0.35s ease; }
@@ -217,8 +217,8 @@
     .booking-submit:hover { background: var(--vermilion-deep); transform: translateY(-2px); }
     .booking-note { margin-top: 16px; font-size: 0.8rem; color: var(--muted); }
 
-    /* FAQ — 温かみクリーム */
-    .faq-wrap { background: var(--cream-warm); padding: 88px 40px; }
+    /* FAQ — 市松パターン */
+    .faq-wrap { background: var(--cream-warm); padding: 88px 40px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect x='0' y='0' width='10' height='10' fill='rgba(230,0,35,0.035)'/%3E%3Crect x='10' y='10' width='10' height='10' fill='rgba(230,0,35,0.035)'/%3E%3C/svg%3E"); background-size: 20px 20px; }
     .faq { max-width: 720px; margin: 0 auto; }
     .faq-item { border-bottom: 1px solid var(--line); padding: 24px 0; }
     .faq-q { font-weight: 500; font-size: 0.98rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--black); }
@@ -227,8 +227,8 @@
     .faq-a { color: var(--muted-d); font-size: 0.88rem; line-height: 1.8; margin-top: 14px; display: none; }
     .faq-a.open { display: block; }
 
-    /* WHY / STORY */
-    .why { background: var(--cream-soft); color: var(--text-dark); padding: 88px 40px; position: relative; overflow: hidden; }
+    /* WHY / STORY — クリーム＋青海波 */
+    .why { background: var(--cream-soft); color: var(--text-dark); padding: 88px 40px; position: relative; overflow: hidden; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28'%3E%3Cpath d='M0,28 A28,28 0 0,0 56,28' fill='none' stroke='rgba(230,0,35,0.05)' stroke-width='1.5'/%3E%3Cpath d='M-28,14 A28,28 0 0,0 28,14' fill='none' stroke='rgba(230,0,35,0.05)' stroke-width='1.5'/%3E%3Cpath d='M28,14 A28,28 0 0,0 84,14' fill='none' stroke='rgba(230,0,35,0.05)' stroke-width='1.5'/%3E%3C/svg%3E"); background-size: 56px 28px; }
     .why::before { content: '想'; position: absolute; top: 40px; right: 6%; font-family: 'Shippori Mincho', serif; font-size: 16rem; color: rgba(230,0,35,0.04); line-height: 1; pointer-events: none; user-select: none; }
     .why-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
     .why .sec-jp { text-align: center; }
@@ -270,6 +270,33 @@
     .sticky-text strong { color: var(--vermilion); }
     .sticky-btn { background: var(--vermilion); color: var(--white); text-decoration: none; padding: 13px 28px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; transition: background 0.2s; }
     .sticky-btn:hover { background: var(--vermilion-deep); }
+
+    /* ===== 和柄・装飾 ===== */
+    /* 青海波パターン（WHY・PRICEに適用） */
+    .pattern-seigaiha {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28'%3E%3Cpath d='M0,28 A28,28 0 0,0 56,28' fill='none' stroke='rgba(230,0,35,0.07)' stroke-width='1.5'/%3E%3Cpath d='M-28,14 A28,28 0 0,0 28,14' fill='none' stroke='rgba(230,0,35,0.07)' stroke-width='1.5'/%3E%3Cpath d='M28,14 A28,28 0 0,0 84,14' fill='none' stroke='rgba(230,0,35,0.07)' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-size: 56px 28px;
+    }
+    /* 市松パターン（FAQに適用） */
+    .pattern-ichimatsu {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Crect x='0' y='0' width='10' height='10' fill='rgba(230,0,35,0.04)'/%3E%3Crect x='10' y='10' width='10' height='10' fill='rgba(230,0,35,0.04)'/%3E%3C/svg%3E");
+      background-size: 20px 20px;
+    }
+    /* 水引区切りライン */
+    .section-divider { height: 2px; background: linear-gradient(90deg, transparent 0%, var(--vermilion) 25%, var(--gold) 50%, var(--vermilion) 75%, transparent 100%); border: none; margin: 0; }
+    /* sec-jp 装飾線 */
+    .sec-jp { display: flex; align-items: center; gap: 14px; justify-content: center; }
+    .sec-jp::before, .sec-jp::after { content: ''; flex: 0 0 36px; height: 1px; background: var(--vermilion); opacity: 0.45; }
+    /* NAV スクロール時シャドウ */
+    nav.scrolled { background: rgba(139,0,21,0.99); box-shadow: 0 4px 28px rgba(139,0,21,0.4); }
+    /* Trust Badges */
+    .trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 20px; max-width: 900px; margin: 36px auto 0; padding: 24px; background: var(--cream-soft); border: 1px solid var(--line); border-radius: 6px; }
+    .tbadge { font-size: 0.82rem; color: var(--text-dark); display: flex; align-items: center; gap: 7px; font-weight: 500; letter-spacing: 0.3px; }
+    /* Pre-FAQ CTA */
+    .pre-faq-cta { text-align: center; padding: 32px 20px 0; }
+    .pre-faq-cta p { font-family: 'Shippori Antique B1', serif; font-size: 0.95rem; color: var(--muted-d); }
+    .pre-faq-cta a { color: var(--vermilion); text-decoration: none; font-weight: 600; }
+    .pre-faq-cta a:hover { text-decoration: underline; }
 
     /* ===== SCROLL ANIMATIONS ===== */
     .anim-up { opacity: 0; transform: translateY(36px); transition: opacity 0.75s ease, transform 0.75s ease; }
@@ -343,6 +370,7 @@
       <div class="trust-item"><div class="trust-num">500<span>+</span></div><div class="trust-label">Reservations Made</div></div>
       <div class="trust-item"><div class="trust-num">24<span>h</span></div><div class="trust-label">Reply Within</div></div>
       <div class="trust-item"><div class="trust-num">100<span>%</span></div><div class="trust-label">Refund Guarantee</div></div>
+      <div class="trust-item"><div class="trust-num" style="font-size:1.4rem;">🇯🇵</div><div class="trust-label">Based in Japan</div></div>
     </div>
     <a href="#price" class="hero-cta">Get Started →</a>
   </div>
@@ -544,6 +572,7 @@
   </div>
 </section>
 
+<hr class="section-divider">
 <!-- HOW -->
 <section class="how" id="how">
   <div class="sec-head anim-up"><div class="sec-jp">ご利用の流れ</div><div class="sec-title">HOW IT WORKS</div></div>
@@ -554,6 +583,7 @@
   </div>
 </section>
 
+<hr class="section-divider">
 <!-- PRICE -->
 <section class="price" id="price">
   <div class="sec-head anim-up"><div class="sec-jp">料金プラン</div><div class="sec-title">CHOOSE YOUR PLAN</div><p class="sec-desc">Simple, honest pricing. Start with Standard, or go Premium for the full concierge experience.</p></div>
@@ -605,8 +635,17 @@
     </div>
 
   </div>
+
+  <!-- Trust Badges -->
+  <div class="trust-badges anim-up">
+    <div class="tbadge">🔒 Secure payment via Stripe</div>
+    <div class="tbadge">✅ Full refund if we can't book</div>
+    <div class="tbadge">⚡ Reply within 24 hours</div>
+    <div class="tbadge">🇯🇵 Local team based in Japan</div>
+  </div>
 </section>
 
+<hr class="section-divider">
 <!-- BOOKING CTA -->
 <section class="booking" id="booking">
   <div class="sec-head"><div class="sec-jp">ご予約はかんたん</div><div class="sec-title">READY TO BOOK?</div><p class="sec-desc" style="color:var(--muted)">Choose your plan, pay securely, and tell us the details. We'll handle the rest.</p></div>
@@ -621,7 +660,7 @@
   <p class="booking-note" style="margin-top:20px;">💳 Secure payment via Stripe · Full refund if we can't book it</p>
 </section>
 
-<!-- FAQ -->
+<hr class="section-divider">
 <!-- WHY WE DO THIS -->
 <section class="why" id="why">
   <div class="why-inner">
@@ -664,8 +703,10 @@
 </section>
 
 <!-- FAQ -->
+<hr class="section-divider">
 <section class="faq-wrap" id="faq">
   <div class="sec-head anim-up"><div class="sec-jp">よくある質問</div><div class="sec-title" style="color:var(--text-dark)">FAQ</div></div>
+  <div class="pre-faq-cta anim-up"><p>Still have questions? <a href="mailto:y0useipc@gmail.com">Email us anytime →</a></p></div>
   <div class="faq">
     <div class="faq-item"><div class="faq-q">How does the whole process work?</div><div class="faq-a">Simple: (1) choose a plan — Standard or Premium — and pay securely via Stripe, (2) fill in your details on the form right after payment, (3) we confirm your booking and reach out by <strong>email</strong>. Premium members also get ongoing <strong>chat support</strong> via Instagram DM, WhatsApp, or LINE throughout their stay. Most confirmations arrive within 24 hours.</div></div>
     <div class="faq-item"><div class="faq-q">What's included in Premium, and why is the price variable?</div><div class="faq-a">Premium includes everything in Standard, plus a custom itinerary map tailored to your stay, trip-planning support (we work with you over a few days to build your full schedule), niche spot research, and unlimited chat during your trip. The price starts at <strong>$60</strong> and varies depending on the number of reservations and the length of your stay — we'll confirm the final price after reviewing your request before any additional charge.</div></div>
@@ -682,9 +723,10 @@
 
 <footer>
   <div class="footer-logo"><img src="images/logo.jpg" alt="" class="footer-logo-img">OMOTENASHI DESK</div>
-  <div class="footer-jp">あなたの日本を、解き放つ</div>
+  <div class="footer-jp">⛩ あなたの日本を、解き放つ ⛩</div>
   <p><a href="legal.html#privacy">Privacy Policy</a> · <a href="legal.html#terms">Terms of Service</a> · <a href="legal.html#refund">Refund Policy</a></p>
-  <p style="margin-top:16px; color:var(--muted)">© 2026 OMOTENASHI DESK. All rights reserved.</p>
+  <p style="margin-top:14px;"><a href="mailto:y0useipc@gmail.com" style="color:rgba(255,255,255,0.6);">📧 y0useipc@gmail.com</a></p>
+  <p style="margin-top:12px; color:var(--muted)">© 2026 OMOTENASHI DESK. All rights reserved.</p>
 </footer>
 
 <!-- STICKY CTA -->
@@ -752,10 +794,13 @@
     if (parseInt(card.dataset.index) > INITIAL_SHOW) card.classList.add('hidden');
   });
 
+  // NAV スクロール時シャドウ
+  const navEl = document.querySelector('nav');
   // Sticky CTA — show after scrolling past hero, hide at booking
   const sticky = document.getElementById('stickyCta');
   const booking = document.getElementById('booking');
   window.addEventListener('scroll', () => {
+    navEl.classList.toggle('scrolled', window.scrollY > 50);
     const past = window.scrollY > window.innerHeight * 0.9;
     const atBooking = booking.getBoundingClientRect().top < window.innerHeight;
     sticky.classList.toggle('show', past && !atBooking);
